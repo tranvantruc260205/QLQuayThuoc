@@ -9,11 +9,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.33">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.33">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.33" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Forms\Main\" />
+    <Folder Include="Forms\Dialogs\" />
+    <Folder Include="BUS\" />
+    <Folder Include="UserControls\UCKhoTong\" />
+    <Folder Include="UserControls\UCKeToan\" />
+    <Folder Include="UserControls\UCAdmin\" />
+    <Folder Include="UserControls\UCBacSi\" />
+    <Folder Include="UserControls\UCDuocSi\" />
   </ItemGroup>
 
 </Project>
