@@ -22,13 +22,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Forms\Main\" />
     <Folder Include="Forms\Dialogs\" />
     <Folder Include="BUS\" />
+    <Folder Include="UserControls\UCBacSi\" />
     <Folder Include="UserControls\UCKhoTong\" />
     <Folder Include="UserControls\UCKeToan\" />
     <Folder Include="UserControls\UCAdmin\" />
-    <Folder Include="UserControls\UCBacSi\" />
     <Folder Include="UserControls\UCDuocSi\" />
   </ItemGroup>
 
