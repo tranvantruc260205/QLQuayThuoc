@@ -306,11 +306,11 @@
             // 
             // button4
             // 
-            button4.Location = new Point(944, 613);
+            button4.Location = new Point(1047, 613);
             button4.Name = "button4";
-            button4.Size = new Size(218, 34);
+            button4.Size = new Size(122, 34);
             button4.TabIndex = 4;
-            button4.Text = "Xác nhận thanh toán";
+            button4.Text = "Xác nhận";
             button4.UseVisualStyleBackColor = true;
             // 
             // UCTiepNhanDon
