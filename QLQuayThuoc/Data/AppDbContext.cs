@@ -8,7 +8,7 @@ namespace QLQuayThuoc.Data
         // Nếu máy của các thành viên dùng tài khoản MySQL khác,
         // chỉ cần sửa chuỗi kết nối này trước khi chạy Update-Database.
         private const string ConnectionString =
-            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=;";     // Sửa chuỗi kết nối nếu cần thiết (password đang trống)
+            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=12345678;";     // Sửa chuỗi kết nối nếu cần thiết (password đang trống)
 
         public DbSet<User> Users { get; set; }
         public DbSet<BenhNhan> BenhNhans { get; set; }

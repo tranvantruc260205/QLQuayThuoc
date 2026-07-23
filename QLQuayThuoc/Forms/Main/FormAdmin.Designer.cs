@@ -105,7 +105,7 @@
             label2.ForeColor = SystemColors.ControlDarkDark;
             label2.Location = new Point(4, 24);
             label2.Name = "label2";
-            label2.Size = new Size(97, 20);
+            label2.Size = new Size(118, 25);
             label2.TabIndex = 0;
             label2.Text = "CHỨC NĂNG";
             // 
@@ -123,7 +123,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(156, 150);
             label1.Name = "label1";
-            label1.Size = new Size(0, 20);
+            label1.Size = new Size(0, 25);
             label1.TabIndex = 0;
             // 
             // label4
@@ -133,7 +133,7 @@
             label4.Location = new Point(8, 9);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(444, 28);
+            label4.Size = new Size(532, 32);
             label4.TabIndex = 2;
             label4.Text = "HỆ THỐNG QUẢN LÝ QUẦY THUỐC BỆNH VIỆN";
             // 
@@ -141,9 +141,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Bahnschrift Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(1186, 17);
+            label5.Location = new Point(1176, 17);
             label5.Name = "label5";
-            label5.Size = new Size(155, 18);
+            label5.Size = new Size(194, 22);
             label5.TabIndex = 4;
             label5.Text = " Trần Văn Trúc | Admin";
             // 
@@ -168,7 +168,7 @@
             // 
             // FormAdmin
             // 
-            AutoScaleDimensions = new SizeF(12F, 28F);
+            AutoScaleDimensions = new SizeF(14F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1386, 620);
             Controls.Add(panel2);
