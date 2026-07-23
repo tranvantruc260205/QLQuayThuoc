@@ -1,26 +1,27 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using QLQuayThuoc.Models;
 
 namespace QLQuayThuoc.Data
 {
     public class AppDbContext : DbContext
     {
-        // Nếu máy của các thành viên dùng tài khoản MySQL khác,
-        // chỉ cần sửa chuỗi kết nối này trước khi chạy Update-Database.
         private const string ConnectionString =
-            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=12345678;";     // Sửa chuỗi kết nối nếu cần thiết (password đang trống)
+            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=;";
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<BenhNhan> BenhNhans { get; set; }
-        public DbSet<DonThuoc> DonThuocs { get; set; }
-        public DbSet<ChiTietDonThuoc> ChiTietDonThuocs { get; set; }
-        public DbSet<Thuoc> Thuocs { get; set; }
-        public DbSet<LoThuoc> LoThuocs { get; set; }
-        public DbSet<PhieuXuatThuoc> PhieuXuatThuocs { get; set; }
-        public DbSet<ChiTietPhieuXuat> ChiTietPhieuXuats { get; set; }
-        public DbSet<PhieuXinCapThuoc> PhieuXinCapThuocs { get; set; }
-        public DbSet<ChiTietPhieuXinCap> ChiTietPhieuXinCaps { get; set; }
-        public DbSet<HoaDon> HoaDons { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<BenhNhan> BenhNhans { get; set; } = null!;
+        public DbSet<DonThuoc> DonThuocs { get; set; } = null!;
+        public DbSet<ChiTietDonThuoc> ChiTietDonThuocs { get; set; } = null!;
+        public DbSet<Thuoc> Thuocs { get; set; } = null!;
+        public DbSet<LoThuoc> LoThuocs { get; set; } = null!;
+        public DbSet<Kho> Khos { get; set; } = null!;
+        public DbSet<TonKho> TonKhos { get; set; } = null!;
+        public DbSet<PhieuXuatThuoc> PhieuXuatThuocs { get; set; } = null!;
+        public DbSet<ChiTietPhieuXuat> ChiTietPhieuXuats { get; set; } = null!;
+        public DbSet<HoaDon> HoaDons { get; set; } = null!;
+        public DbSet<PhieuXinCapThuoc> PhieuXinCapThuocs { get; set; } = null!;
+        public DbSet<ChiTietPhieuXinCap> ChiTietPhieuXinCaps { get; set; } = null!;
+        public DbSet<ChiTietCapTheoLo> ChiTietCapTheoLos { get; set; } = null!;
 
         public AppDbContext()
         {
@@ -31,7 +32,8 @@ namespace QLQuayThuoc.Data
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(
+            DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
@@ -48,87 +50,73 @@ namespace QLQuayThuoc.Data
             // =========================================================
 
             modelBuilder.Entity<ChiTietDonThuoc>()
-                .HasKey(x => new
-                {
-                    x.MaDonThuoc,
-                    x.MaThuoc
-                });
+                .HasKey(x => new { x.MaDonThuoc, x.MaThuoc });
+
+            modelBuilder.Entity<TonKho>()
+                .HasKey(x => new { x.MaKho, x.MaLo });
 
             modelBuilder.Entity<ChiTietPhieuXuat>()
-                .HasKey(x => new
-                {
-                    x.MaPhieuXuat,
-                    x.MaLo
-                });
+                .HasKey(x => new { x.MaPhieuXuat, x.MaLo });
 
             modelBuilder.Entity<ChiTietPhieuXinCap>()
-                .HasKey(x => new
-                {
-                    x.MaPhieu,
-                    x.MaThuoc
-                });
+                .HasKey(x => new { x.MaPhieu, x.MaThuoc });
 
+            modelBuilder.Entity<ChiTietCapTheoLo>()
+                .HasKey(x => new { x.MaPhieu, x.MaThuoc, x.MaLo });
 
             // =========================================================
-            // 2. USER
+            // 2. CÁC GIÁ TRỊ KHÔNG ĐƯỢC TRÙNG
             // =========================================================
 
-            // Không cho phép trùng email tài khoản.
             modelBuilder.Entity<User>()
                 .HasIndex(x => x.Email)
                 .IsUnique();
 
-            // Một User (bác sĩ) có thể kê nhiều đơn thuốc.
+            modelBuilder.Entity<LoThuoc>()
+                .HasIndex(x => new { x.MaThuoc, x.SoLo })
+                .IsUnique();
+
+            modelBuilder.Entity<HoaDon>()
+                .HasIndex(x => x.MaGiaoDich)
+                .IsUnique();
+
+            // =========================================================
+            // 3. USER
+            // =========================================================
+
             modelBuilder.Entity<DonThuoc>()
                 .HasOne(x => x.BacSi)
                 .WithMany(x => x.DonThuocs)
                 .HasForeignKey(x => x.BacSiId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Một User (dược sĩ) có thể lập nhiều phiếu xuất thuốc.
             modelBuilder.Entity<PhieuXuatThuoc>()
                 .HasOne(x => x.DuocSi)
                 .WithMany(x => x.PhieuXuatThuocs)
                 .HasForeignKey(x => x.DuocSiId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Một User (thu ngân) có thể xử lý nhiều hóa đơn.
-            modelBuilder.Entity<HoaDon>()
-                .HasOne(x => x.ThuNgan)
-                .WithMany(x => x.HoaDons)
-                .HasForeignKey(x => x.ThuNganId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Một User có thể lập nhiều phiếu xin cấp thuốc.
             modelBuilder.Entity<PhieuXinCapThuoc>()
                 .HasOne(x => x.NguoiLap)
                 .WithMany(x => x.PhieuDaLap)
                 .HasForeignKey(x => x.NguoiLapId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Một User có thể duyệt nhiều phiếu xin cấp thuốc.
             modelBuilder.Entity<PhieuXinCapThuoc>()
                 .HasOne(x => x.NguoiDuyet)
                 .WithMany(x => x.PhieuDaDuyet)
                 .HasForeignKey(x => x.NguoiDuyetId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             // =========================================================
-            // 3. BỆNH NHÂN - ĐƠN THUỐC
+            // 4. BỆNH NHÂN - ĐƠN THUỐC - CHI TIẾT ĐƠN
             // =========================================================
 
-            // Một bệnh nhân có thể có nhiều đơn thuốc.
             modelBuilder.Entity<DonThuoc>()
                 .HasOne(x => x.BenhNhan)
                 .WithMany(x => x.DonThuocs)
                 .HasForeignKey(x => x.MaBN)
                 .OnDelete(DeleteBehavior.Restrict);
-
-
-            // =========================================================
-            // 4. ĐƠN THUỐC - CHI TIẾT ĐƠN THUỐC
-            // =========================================================
 
             modelBuilder.Entity<ChiTietDonThuoc>()
                 .HasOne(x => x.DonThuoc)
@@ -142,43 +130,43 @@ namespace QLQuayThuoc.Data
                 .HasForeignKey(x => x.MaThuoc)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
             // =========================================================
-            // 5. THUỐC - LÔ THUỐC
+            // 5. THUỐC - LÔ THUỐC - TỒN KHO
             // =========================================================
 
-            // Một thuốc có nhiều lô thuốc.
             modelBuilder.Entity<LoThuoc>()
                 .HasOne(x => x.Thuoc)
                 .WithMany(x => x.LoThuocs)
                 .HasForeignKey(x => x.MaThuoc)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Không cho phép trùng số lô của cùng một thuốc.
-            modelBuilder.Entity<LoThuoc>()
-                .HasIndex(x => new
-                {
-                    x.MaThuoc,
-                    x.SoLo
-                })
-                .IsUnique();
+            modelBuilder.Entity<TonKho>()
+                .HasOne(x => x.Kho)
+                .WithMany(x => x.TonKhos)
+                .HasForeignKey(x => x.MaKho)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<TonKho>()
+                .HasOne(x => x.LoThuoc)
+                .WithMany(x => x.TonKhos)
+                .HasForeignKey(x => x.MaLo)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // =========================================================
-            // 6. ĐƠN THUỐC - PHIẾU XUẤT THUỐC
+            // 6. ĐƠN THUỐC - PHIẾU XUẤT - HÓA ĐƠN
             // =========================================================
 
-            // Một đơn thuốc có tối đa một phiếu xuất thuốc.
             modelBuilder.Entity<DonThuoc>()
                 .HasOne(x => x.PhieuXuatThuoc)
                 .WithOne(x => x.DonThuoc)
                 .HasForeignKey<PhieuXuatThuoc>(x => x.MaDonThuoc)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
-            // =========================================================
-            // 7. PHIẾU XUẤT - CHI TIẾT PHIẾU XUẤT - LÔ THUỐC
-            // =========================================================
+            modelBuilder.Entity<PhieuXuatThuoc>()
+                .HasOne(x => x.Kho)
+                .WithMany(x => x.PhieuXuatThuocs)
+                .HasForeignKey(x => x.MaKho)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ChiTietPhieuXuat>()
                 .HasOne(x => x.PhieuXuatThuoc)
@@ -192,10 +180,27 @@ namespace QLQuayThuoc.Data
                 .HasForeignKey(x => x.MaLo)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<PhieuXuatThuoc>()
+                .HasOne(x => x.HoaDon)
+                .WithOne(x => x.PhieuXuatThuoc)
+                .HasForeignKey<HoaDon>(x => x.MaPhieuXuat)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // =========================================================
-            // 8. PHIẾU XIN CẤP - CHI TIẾT PHIẾU XIN CẤP - THUỐC
+            // 7. PHIẾU XIN CẤP THUỐC
             // =========================================================
+
+            modelBuilder.Entity<PhieuXinCapThuoc>()
+                .HasOne(x => x.KhoCap)
+                .WithMany(x => x.PhieuCapDi)
+                .HasForeignKey(x => x.KhoCapId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<PhieuXinCapThuoc>()
+                .HasOne(x => x.KhoNhan)
+                .WithMany(x => x.PhieuNhanVe)
+                .HasForeignKey(x => x.KhoNhanId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<ChiTietPhieuXinCap>()
                 .HasOne(x => x.PhieuXinCapThuoc)
@@ -209,65 +214,37 @@ namespace QLQuayThuoc.Data
                 .HasForeignKey(x => x.MaThuoc)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
-            // =========================================================
-            // 9. ĐƠN THUỐC - HÓA ĐƠN
-            // =========================================================
-
-            // Một đơn thuốc có tối đa một hóa đơn.
-            modelBuilder.Entity<DonThuoc>()
-                .HasOne(x => x.HoaDon)
-                .WithOne(x => x.DonThuoc)
-                .HasForeignKey<HoaDon>(x => x.MaDonThuoc)
+            modelBuilder.Entity<ChiTietCapTheoLo>()
+                .HasOne(x => x.ChiTietPhieuXinCap)
+                .WithMany(x => x.ChiTietCapTheoLos)
+                .HasForeignKey(x => new { x.MaPhieu, x.MaThuoc })
                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<ChiTietCapTheoLo>()
+                .HasOne(x => x.LoThuoc)
+                .WithMany(x => x.ChiTietCapTheoLos)
+                .HasForeignKey(x => x.MaLo)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // =========================================================
-            // 10. KIỂU DECIMAL
+            // 8. DỮ LIỆU CỐ ĐỊNH BAN ĐẦU
             // =========================================================
 
-            modelBuilder.Entity<Thuoc>()
-                .Property(x => x.DonGia)
-                .HasPrecision(18, 2);
+            modelBuilder.Entity<Kho>().HasData(
+                new Kho
+                {
+                    MaKho = 1,
+                    TenKho = "Kho tổng",
+                    LoaiKho = "KHO_TONG"
+                },
+                new Kho
+                {
+                    MaKho = 2,
+                    TenKho = "Kho quầy",
+                    LoaiKho = "KHO_QUAY"
+                }
+            );
 
-            modelBuilder.Entity<LoThuoc>()
-                .Property(x => x.GiaNhap)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<ChiTietPhieuXuat>()
-                .Property(x => x.DonGia)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<ChiTietPhieuXuat>()
-                .Property(x => x.ThanhTien)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(x => x.TongTienThuoc)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(x => x.TienBHYTThanhToan)
-                .HasPrecision(18, 2);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(x => x.TienBenhNhanTra)
-                .HasPrecision(18, 2);
-
-
-            // =========================================================
-            // 11. SEED ADMIN MẶC ĐỊNH
-            // =========================================================
-            //
-            // Tài khoản đăng nhập ban đầu:
-            // Email:    admin@gmail.com
-            // Password: Admin@123
-            //
-            // PasswordHash bên dưới là hash cố định theo định dạng
-            // ASP.NET Core Identity PasswordHasher.
-            // Không gọi HashPassword() trực tiếp tại đây vì HasData
-            // cần dữ liệu cố định để migration không thay đổi mỗi lần.
-            //
             modelBuilder.Entity<User>().HasData(
                 new User
                 {
@@ -275,7 +252,7 @@ namespace QLQuayThuoc.Data
                     FullName = "Quản trị viên",
                     PhoneNumber = "0000000000",
                     Email = "admin@gmail.com",
-                    PasswordHash = "AQAAAAEAAYagAAAAEAoi8S+gZ0EPMOKWIBoNTKwyLG/nnw896ohJOJu9e08MOxZeFhPyujJBQkB85AfiZw==",
+                    PasswordHash = "AQAAAAEAAYagAAAAEAoi8S+gZ0EPMOKWIBoNTKwyLG/nnw896ohJOJu9e08MOxZeFhPyujJBQkB85AfiZw==", //Password : Admin@123
                     Role = "ADMIN",
                     IsActive = true
                 }

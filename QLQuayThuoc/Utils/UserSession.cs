@@ -1,15 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QLQuayThuoc.Utils
+﻿namespace QLQuayThuoc.Utils
 {
-    public class UserSession
+    public static class UserSession
     {
-        public int UserId { get; set; }
-        public string Fullname { get; set; }
-        public string Role { get; set; }
+        public static int UserId { get; private set; }
+
+        public static string FullName { get; private set; }
+            = string.Empty;
+
+        public static string Role { get; private set; }
+            = string.Empty;
+
+        public static bool IsLoggedIn => UserId > 0;
+
+        public static void SetUser(int userId, string fullName, string role)
+        {
+            UserId = userId;
+            FullName = fullName;
+            Role = role;
+        }
+
+        public static void Clear()
+        {
+            UserId = 0;
+            FullName = string.Empty;
+            Role = string.Empty;
+        }
     }
 }

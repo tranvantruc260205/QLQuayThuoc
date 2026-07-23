@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="BUS\" />
+    <Folder Include="Data\" />
     <Folder Include="Forms\Dialogs\" />
     <Folder Include="Models\" />
     <Folder Include="UserControls\UCBacSi\" />
