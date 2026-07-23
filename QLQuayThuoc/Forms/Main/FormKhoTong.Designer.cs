@@ -68,7 +68,7 @@
             btn_KhoThuoc.Name = "btn_KhoThuoc";
             btn_KhoThuoc.Size = new Size(155, 29);
             btn_KhoThuoc.TabIndex = 2;
-            btn_KhoThuoc.Text = "Kho thuốc/Lô thuốc";
+            btn_KhoThuoc.Text = "Tồn kho/Lô thuốc";
             btn_KhoThuoc.UseVisualStyleBackColor = false;
             btn_KhoThuoc.Click += btn_KhoThuoc_Click;
             // 
@@ -137,7 +137,7 @@
             panelHeader.Size = new Size(1230, 50);
             panelHeader.TabIndex = 3;
             // 
-            // DuyetPhieuXinCap
+            // FormKhoTong
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -145,7 +145,7 @@
             Controls.Add(panelContent);
             Controls.Add(panelMenu);
             Controls.Add(panelHeader);
-            Name = "DuyetPhieuXinCap";
+            Name = "FormKhoTong";
             Text = "Quản lý quầy thuốc bệnh viện";
             Load += DuyetPhieuXinCap_Load;
             panelMenu.ResumeLayout(false);

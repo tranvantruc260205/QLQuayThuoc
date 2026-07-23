@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelContent = new Panel();
             comboBox2 = new ComboBox();
             dataGridView1 = new DataGridView();
@@ -41,7 +41,6 @@
             Column7 = new DataGridViewTextBoxColumn();
             comboBox1 = new ComboBox();
             textBox1 = new TextBox();
-            button7 = new Button();
             button6 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -50,7 +49,6 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
-            button8 = new Button();
             panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -58,12 +56,10 @@
             // panelContent
             // 
             panelContent.BackColor = SystemColors.Window;
-            panelContent.Controls.Add(button8);
             panelContent.Controls.Add(comboBox2);
             panelContent.Controls.Add(dataGridView1);
             panelContent.Controls.Add(comboBox1);
             panelContent.Controls.Add(textBox1);
-            panelContent.Controls.Add(button7);
             panelContent.Controls.Add(button6);
             panelContent.Controls.Add(button5);
             panelContent.Controls.Add(button4);
@@ -91,14 +87,14 @@
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
             dataGridView1.EnableHeadersVisualStyles = false;
@@ -176,15 +172,6 @@
             textBox1.Size = new Size(125, 27);
             textBox1.TabIndex = 12;
             // 
-            // button7
-            // 
-            button7.Location = new Point(908, 77);
-            button7.Name = "button7";
-            button7.Size = new Size(129, 29);
-            button7.TabIndex = 11;
-            button7.Text = "Nhập lô mới";
-            button7.UseVisualStyleBackColor = true;
-            // 
             // button6
             // 
             button6.Location = new Point(908, 226);
@@ -259,15 +246,6 @@
             label4.TabIndex = 2;
             label4.Text = "Quản lý lô thuốc";
             // 
-            // button8
-            // 
-            button8.Location = new Point(797, 76);
-            button8.Name = "button8";
-            button8.Size = new Size(94, 29);
-            button8.TabIndex = 18;
-            button8.Text = "Sửa lô";
-            button8.UseVisualStyleBackColor = true;
-            // 
             // UCQuanLyLoThuoc
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -295,7 +273,6 @@
         private DataGridViewTextBoxColumn Column7;
         private ComboBox comboBox1;
         private TextBox textBox1;
-        private Button button7;
         private Button button6;
         private Button button5;
         private Button button4;
@@ -304,6 +281,5 @@
         private Label label6;
         private Label label5;
         private Label label4;
-        private Button button8;
     }
 }

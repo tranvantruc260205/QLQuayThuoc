@@ -28,21 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             panelContent = new Panel();
-            button11 = new Button();
             button10 = new Button();
             button9 = new Button();
             button8 = new Button();
             button7 = new Button();
             button5 = new Button();
-            groupBox2 = new GroupBox();
-            textBox4 = new TextBox();
-            comboBox2 = new ComboBox();
-            dateTimePicker2 = new DateTimePicker();
-            label13 = new Label();
-            label12 = new Label();
-            label11 = new Label();
             groupBox1 = new GroupBox();
             label18 = new Label();
             label17 = new Label();
@@ -62,11 +54,9 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            button6 = new Button();
             label5 = new Label();
             label4 = new Label();
             panelContent.SuspendLayout();
-            groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -74,16 +64,13 @@
             // panelContent
             // 
             panelContent.BackColor = SystemColors.Window;
-            panelContent.Controls.Add(button11);
             panelContent.Controls.Add(button10);
             panelContent.Controls.Add(button9);
             panelContent.Controls.Add(button8);
             panelContent.Controls.Add(button7);
             panelContent.Controls.Add(button5);
-            panelContent.Controls.Add(groupBox2);
             panelContent.Controls.Add(groupBox1);
             panelContent.Controls.Add(dataGridView1);
-            panelContent.Controls.Add(button6);
             panelContent.Controls.Add(label5);
             panelContent.Controls.Add(label4);
             panelContent.Dock = DockStyle.Fill;
@@ -92,27 +79,18 @@
             panelContent.Size = new Size(1049, 491);
             panelContent.TabIndex = 4;
             // 
-            // button11
-            // 
-            button11.Location = new Point(955, 435);
-            button11.Name = "button11";
-            button11.Size = new Size(94, 29);
-            button11.TabIndex = 24;
-            button11.Text = "Hoàn tất";
-            button11.UseVisualStyleBackColor = true;
-            // 
             // button10
             // 
-            button10.Location = new Point(829, 435);
+            button10.Location = new Point(925, 435);
             button10.Name = "button10";
-            button10.Size = new Size(94, 29);
+            button10.Size = new Size(114, 29);
             button10.TabIndex = 23;
-            button10.Text = "Lưu";
+            button10.Text = "Lưu và in đơn";
             button10.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
-            button9.Location = new Point(708, 435);
+            button9.Location = new Point(811, 435);
             button9.Name = "button9";
             button9.Size = new Size(94, 29);
             button9.TabIndex = 22;
@@ -121,7 +99,7 @@
             // 
             // button8
             // 
-            button8.Location = new Point(295, 217);
+            button8.Location = new Point(292, 145);
             button8.Name = "button8";
             button8.Size = new Size(94, 29);
             button8.TabIndex = 21;
@@ -130,7 +108,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(172, 217);
+            button7.Location = new Point(169, 145);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 20;
@@ -139,76 +117,12 @@
             // 
             // button5
             // 
-            button5.Location = new Point(34, 216);
+            button5.Location = new Point(31, 144);
             button5.Name = "button5";
             button5.Size = new Size(112, 29);
             button5.TabIndex = 19;
             button5.Text = "Thêm thuốc";
             button5.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(textBox4);
-            groupBox2.Controls.Add(comboBox2);
-            groupBox2.Controls.Add(dateTimePicker2);
-            groupBox2.Controls.Add(label13);
-            groupBox2.Controls.Add(label12);
-            groupBox2.Controls.Add(label11);
-            groupBox2.Location = new Point(6, 130);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1033, 81);
-            groupBox2.TabIndex = 18;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Thông tin đơn";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(639, 38);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(277, 27);
-            textBox4.TabIndex = 5;
-            // 
-            // comboBox2
-            // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(386, 38);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 4;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(110, 39);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(250, 27);
-            dateTimePicker2.TabIndex = 3;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(639, 19);
-            label13.Name = "label13";
-            label13.Size = new Size(58, 20);
-            label13.TabIndex = 2;
-            label13.Text = "Ghi chú";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(386, 19);
-            label12.Name = "label12";
-            label12.Size = new Size(75, 20);
-            label12.TabIndex = 1;
-            label12.Text = "Trạng thái";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(110, 19);
-            label11.Name = "label11";
-            label11.Size = new Size(63, 20);
-            label11.TabIndex = 0;
-            label11.Text = "Ngày kê";
             // 
             // groupBox1
             // 
@@ -317,9 +231,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(155, 23);
             label7.Name = "label7";
-            label7.Size = new Size(60, 20);
+            label7.Size = new Size(56, 20);
             label7.TabIndex = 1;
-            label7.Text = "Họ  Tên";
+            label7.Text = "Họ Tên";
             // 
             // label6
             // 
@@ -335,26 +249,26 @@
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.GridColor = SystemColors.ControlDarkDark;
-            dataGridView1.Location = new Point(3, 251);
+            dataGridView1.Location = new Point(0, 179);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RightToLeft = RightToLeft.No;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1051, 178);
+            dataGridView1.Size = new Size(1051, 250);
             dataGridView1.TabIndex = 16;
             // 
             // Column1
@@ -399,22 +313,13 @@
             Column6.Name = "Column6";
             Column6.Width = 150;
             // 
-            // button6
-            // 
-            button6.Location = new Point(908, 226);
-            button6.Name = "button6";
-            button6.Size = new Size(8, 8);
-            button6.TabIndex = 10;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(6, 28);
             label5.Name = "label5";
-            label5.Size = new Size(197, 15);
+            label5.Size = new Size(196, 15);
             label5.TabIndex = 3;
             label5.Text = "Tạo đơn thuốc và chi tiết đơn thuốc";
             // 
@@ -437,8 +342,6 @@
             Size = new Size(1049, 491);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -448,19 +351,11 @@
         #endregion
 
         private Panel panelContent;
-        private Button button11;
         private Button button10;
         private Button button9;
         private Button button8;
         private Button button7;
         private Button button5;
-        private GroupBox groupBox2;
-        private TextBox textBox4;
-        private ComboBox comboBox2;
-        private DateTimePicker dateTimePicker2;
-        private Label label13;
-        private Label label12;
-        private Label label11;
         private GroupBox groupBox1;
         private Label label18;
         private Label label17;
@@ -480,7 +375,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
-        private Button button6;
         private Label label5;
         private Label label4;
     }

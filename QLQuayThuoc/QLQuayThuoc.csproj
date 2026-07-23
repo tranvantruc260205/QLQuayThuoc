@@ -25,7 +25,6 @@
     <Folder Include="BUS\" />
     <Folder Include="Forms\Dialogs\" />
     <Folder Include="UserControls\UCBacSi\" />
-    <Folder Include="UserControls\UCKeToan\" />
     <Folder Include="UserControls\UCKhoTong\" />
   </ItemGroup>
 

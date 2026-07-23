@@ -31,13 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContent = new Panel();
             dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
             comboBox1 = new ComboBox();
             dateTimePicker2 = new DateTimePicker();
             dateTimePicker1 = new DateTimePicker();
@@ -52,6 +45,12 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -94,66 +93,17 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column7 });
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ImeMode = ImeMode.NoControl;
-            dataGridView1.Location = new Point(3, 144);
+            dataGridView1.Location = new Point(55, 138);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1044, 227);
+            dataGridView1.Size = new Size(944, 227);
             dataGridView1.TabIndex = 16;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã đơn";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            Column1.Width = 200;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Bệnh nhân";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Ngày kê";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Số thuốc";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Trạng thái";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 155;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Ghi chú";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.Width = 160;
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "Thao tác";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            Column7.Width = 125;
             // 
             // comboBox1
             // 
@@ -181,7 +131,7 @@
             // 
             textBox1.Location = new Point(6, 95);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(141, 27);
             textBox1.TabIndex = 12;
             // 
             // button7
@@ -265,7 +215,7 @@
             label5.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
             label5.Location = new Point(6, 37);
             label5.Name = "label5";
-            label5.Size = new Size(309, 15);
+            label5.Size = new Size(308, 15);
             label5.TabIndex = 3;
             label5.Text = "Tra cứu đơn đã kê; chỉ bản nháp/chờ cấp thuốc hoặc hủy";
             // 
@@ -278,6 +228,48 @@
             label4.Size = new Size(222, 28);
             label4.TabIndex = 2;
             label4.Text = "Danh Sách Đơn Thuốc";
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Mã đơn";
+            Column1.MinimumWidth = 8;
+            Column1.Name = "Column1";
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Bệnh nhân";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Ngày kê";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 155;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Số loại thuốc";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 155;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Trạng thái";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 155;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Thao tác";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.Width = 125;
             // 
             // UCDanhSachDonThuoc
             // 
@@ -296,13 +288,6 @@
 
         private Panel panelContent;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
         private ComboBox comboBox1;
         private DateTimePicker dateTimePicker2;
         private DateTimePicker dateTimePicker1;
@@ -317,5 +302,11 @@
         private Label label6;
         private Label label5;
         private Label label4;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column7;
     }
 }
