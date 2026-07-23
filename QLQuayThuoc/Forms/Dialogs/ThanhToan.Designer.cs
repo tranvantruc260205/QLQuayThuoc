@@ -41,13 +41,13 @@
             label3 = new Label();
             label2 = new Label();
             groupBox3 = new GroupBox();
+            pictureBox1 = new PictureBox();
             label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
-            pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox2.SuspendLayout();
@@ -60,9 +60,9 @@
             groupBox1.BackColor = SystemColors.ControlLight;
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(22, 10);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(1402, 88);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
@@ -85,7 +85,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dataGridView1.GridColor = SystemColors.ButtonShadow;
             dataGridView1.Location = new Point(22, 120);
-            dataGridView1.Margin = new Padding(2, 2, 2, 2);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 72;
@@ -129,9 +129,9 @@
             groupBox2.Controls.Add(label3);
             groupBox2.Controls.Add(label2);
             groupBox2.Location = new Point(22, 355);
-            groupBox2.Margin = new Padding(2, 2, 2, 2);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(2, 2, 2, 2);
+            groupBox2.Padding = new Padding(2);
             groupBox2.Size = new Size(692, 260);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
@@ -189,13 +189,21 @@
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label6);
             groupBox3.Location = new Point(735, 355);
-            groupBox3.Margin = new Padding(2, 2, 2, 2);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2, 2, 2, 2);
+            groupBox3.Padding = new Padding(2);
             groupBox3.Size = new Size(689, 260);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "QR thanh toán ";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(39, 42);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(199, 186);
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -230,7 +238,7 @@
             // button1
             // 
             button1.Location = new Point(882, 634);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(109, 48);
             button1.TabIndex = 10;
@@ -240,7 +248,7 @@
             // button2
             // 
             button2.Location = new Point(1016, 634);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(158, 48);
             button2.TabIndex = 11;
@@ -250,20 +258,12 @@
             // button3
             // 
             button3.Location = new Point(1192, 634);
-            button3.Margin = new Padding(2, 2, 2, 2);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
             button3.Size = new Size(232, 48);
             button3.TabIndex = 12;
             button3.Text = "Xác nhận đã thanh toán ";
             button3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(39, 42);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(199, 186);
-            pictureBox1.TabIndex = 3;
-            pictureBox1.TabStop = false;
             // 
             // ThanhToan
             // 
@@ -277,7 +277,7 @@
             Controls.Add(groupBox2);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "ThanhToan";
             Text = "Thanh toán và in hóa đơn ";
             groupBox1.ResumeLayout(false);
