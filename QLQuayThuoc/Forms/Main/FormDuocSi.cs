@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLQuayThuoc.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,11 @@ namespace QLQuayThuoc
         private void button3_Click(object sender, EventArgs e)
         {
             OpenUserControl(new UCPhieuXinCap());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenUserControl(new UCTiepNhanDon());
         }
     }
 }
