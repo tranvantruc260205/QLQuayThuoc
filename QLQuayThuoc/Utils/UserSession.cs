@@ -8,5 +8,8 @@ namespace QLQuayThuoc.Utils
 {
     public class UserSession
     {
+        public int UserId { get; set; }
+        public string Fullname { get; set; }
+        public string Role { get; set; }
     }
 }
