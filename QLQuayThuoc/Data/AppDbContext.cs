@@ -6,7 +6,7 @@ namespace QLQuayThuoc.Data
     public class AppDbContext : DbContext
     {
         private const string ConnectionString =
-            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=12345678;";     //Tự thay mật khẩu mysql vào
+            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=12345678;";     //Tự thay mật khẩu mysql server vào
 
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<BenhNhan> BenhNhans { get; set; } = null!;
@@ -114,6 +114,10 @@ namespace QLQuayThuoc.Data
             modelBuilder.Entity<User>()
                 .HasIndex(x => x.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<User>()
+            .HasIndex(x => x.PhoneNumber)
+            .IsUnique();
 
             modelBuilder.Entity<LoThuoc>()
                 .HasIndex(x => new { x.MaThuoc, x.SoLo })

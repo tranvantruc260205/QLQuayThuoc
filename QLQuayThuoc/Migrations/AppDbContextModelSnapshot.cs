@@ -498,6 +498,9 @@ namespace QLQuayThuoc.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
+                    b.HasIndex("PhoneNumber")
+                        .IsUnique();
+
                     b.ToTable("User", (string)null);
 
                     b.HasData(

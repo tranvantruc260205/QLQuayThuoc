@@ -11,7 +11,7 @@ using QLQuayThuoc.Data;
 namespace QLQuayThuoc.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260724110641_InitialMigration")]
+    [Migration("20260724113452_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -498,6 +498,9 @@ namespace QLQuayThuoc.Migrations
                     b.HasKey("UserId");
 
                     b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("PhoneNumber")
                         .IsUnique();
 
                     b.ToTable("User", (string)null);

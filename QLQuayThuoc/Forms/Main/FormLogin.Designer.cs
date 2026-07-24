@@ -51,9 +51,9 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(127, 72);
-            groupBox1.Margin = new Padding(2, 2, 2, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(2, 2, 2, 2);
+            groupBox1.Padding = new Padding(2);
             groupBox1.Size = new Size(610, 416);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
@@ -64,7 +64,7 @@
             button2.BackColor = SystemColors.ActiveCaption;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Location = new Point(373, 299);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(95, 33);
             button2.TabIndex = 7;
@@ -74,7 +74,7 @@
             // button1
             // 
             button1.Location = new Point(248, 299);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(93, 33);
             button1.TabIndex = 6;
@@ -84,12 +84,12 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(93, 231);
-            checkBox1.Margin = new Padding(2, 2, 2, 2);
+            checkBox1.Location = new Point(93, 237);
+            checkBox1.Margin = new Padding(2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(161, 24);
+            checkBox1.Size = new Size(127, 24);
             checkBox1.TabIndex = 5;
-            checkBox1.Text = "Ghi nhớ đăng nhập ";
+            checkBox1.Text = "Hiện mật khẩu";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -105,7 +105,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(93, 192);
-            textBox2.Margin = new Padding(2, 2, 2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.PasswordChar = '•';
             textBox2.Size = new Size(385, 27);
@@ -115,7 +115,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(93, 121);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(385, 27);
             textBox1.TabIndex = 2;
@@ -147,7 +147,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(867, 550);
             Controls.Add(groupBox1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FormLogin";
             Text = "Quản Lý Quầy Thuốc Bệnh Viện";
             groupBox1.ResumeLayout(false);
