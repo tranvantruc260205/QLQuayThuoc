@@ -37,7 +37,7 @@
             panel2 = new Panel();
             label1 = new Label();
             label4 = new Label();
-            label5 = new Label();
+            lblAdmin = new Label();
             panel3 = new Panel();
             panel5 = new Panel();
             panel1.SuspendLayout();
@@ -55,7 +55,7 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(0, 57);
             panel1.Name = "panel1";
-            panel1.Size = new Size(252, 564);
+            panel1.Size = new Size(244, 564);
             panel1.TabIndex = 1;
             // 
             // panel4
@@ -75,6 +75,7 @@
             btnDangXuat.TabIndex = 3;
             btnDangXuat.Text = "Đăng xuất";
             btnDangXuat.UseVisualStyleBackColor = true;
+            btnDangXuat.Click += btnDangXuat_Click;
             // 
             // btnDanhMuc
             // 
@@ -113,9 +114,9 @@
             // 
             panel2.Controls.Add(label1);
             panel2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            panel2.Location = new Point(258, 65);
+            panel2.Location = new Point(250, 60);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1115, 556);
+            panel2.Size = new Size(1123, 561);
             panel2.TabIndex = 2;
             // 
             // label1
@@ -137,21 +138,21 @@
             label4.TabIndex = 2;
             label4.Text = "HỆ THỐNG QUẢN LÝ QUẦY THUỐC BỆNH VIỆN";
             // 
-            // label5
+            // lblAdmin
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Bahnschrift Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(1176, 17);
-            label5.Name = "label5";
-            label5.Size = new Size(155, 18);
-            label5.TabIndex = 4;
-            label5.Text = " Trần Văn Trúc | Admin";
+            lblAdmin.AutoSize = true;
+            lblAdmin.Font = new Font("Bahnschrift Light", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAdmin.Location = new Point(1193, 17);
+            lblAdmin.Name = "lblAdmin";
+            lblAdmin.Size = new Size(155, 18);
+            lblAdmin.TabIndex = 4;
+            lblAdmin.Text = " Trần Văn Trúc | Admin";
             // 
             // panel3
             // 
             panel3.BackColor = SystemColors.ScrollBar;
             panel3.Controls.Add(panel5);
-            panel3.Controls.Add(label5);
+            panel3.Controls.Add(lblAdmin);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(0, 2);
             panel3.Name = "panel3";
@@ -177,7 +178,7 @@
             Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "FormAdmin";
-            Text = "Form1";
+            Text = "Trang Admin";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -195,7 +196,7 @@
         private Button btnDanhMuc;
         private Button btnDangXuat;
         private Label label4;
-        private Label label5;
+        private Label lblAdmin;
         private Panel panel3;
         private Label label1;
         private Panel panel4;

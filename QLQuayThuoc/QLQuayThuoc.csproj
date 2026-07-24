@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BUS\**" />
+    <EmbeddedResource Remove="BUS\**" />
+    <None Remove="BUS\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.33">
       <PrivateAssets>all</PrivateAssets>
@@ -23,9 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BUS\" />
     <Folder Include="Data\" />
-    <Folder Include="Forms\Dialogs\" />
     <Folder Include="Models\" />
     <Folder Include="UserControls\UCBacSi\" />
     <Folder Include="UserControls\UCKhoTong\" />

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            button1 = new Button();
-            checkBox1 = new CheckBox();
+            btnLogin = new Button();
+            btnExit = new Button();
+            chkShowPassword = new CheckBox();
             label3 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtPassword = new TextBox();
+            txtLoginInfo = new TextBox();
             label2 = new Label();
             label1 = new Label();
             groupBox1.SuspendLayout();
@@ -42,12 +42,12 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(checkBox1);
+            groupBox1.Controls.Add(btnLogin);
+            groupBox1.Controls.Add(btnExit);
+            groupBox1.Controls.Add(chkShowPassword);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtPassword);
+            groupBox1.Controls.Add(txtLoginInfo);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(127, 72);
@@ -59,38 +59,41 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Đăng nhập hệ thống ";
             // 
-            // button2
+            // btnLogin
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(373, 299);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(95, 33);
-            button2.TabIndex = 7;
-            button2.Text = "Đăng nhập";
-            button2.UseVisualStyleBackColor = false;
+            btnLogin.BackColor = SystemColors.ActiveCaption;
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.Location = new Point(373, 299);
+            btnLogin.Margin = new Padding(2);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(95, 33);
+            btnLogin.TabIndex = 7;
+            btnLogin.Text = "Đăng nhập";
+            btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += btnLogin_Click;
             // 
-            // button1
+            // btnExit
             // 
-            button1.Location = new Point(248, 299);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 33);
-            button1.TabIndex = 6;
-            button1.Text = "Thoát";
-            button1.UseVisualStyleBackColor = true;
+            btnExit.Location = new Point(248, 299);
+            btnExit.Margin = new Padding(2);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(93, 33);
+            btnExit.TabIndex = 6;
+            btnExit.Text = "Thoát";
+            btnExit.UseVisualStyleBackColor = true;
+            btnExit.Click += btnExit_Click;
             // 
-            // checkBox1
+            // chkShowPassword
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(93, 237);
-            checkBox1.Margin = new Padding(2);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(127, 24);
-            checkBox1.TabIndex = 5;
-            checkBox1.Text = "Hiện mật khẩu";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkShowPassword.AutoSize = true;
+            chkShowPassword.Location = new Point(93, 237);
+            chkShowPassword.Margin = new Padding(2);
+            chkShowPassword.Name = "chkShowPassword";
+            chkShowPassword.Size = new Size(127, 24);
+            chkShowPassword.TabIndex = 5;
+            chkShowPassword.Text = "Hiện mật khẩu";
+            chkShowPassword.UseVisualStyleBackColor = true;
+            chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
             // 
             // label3
             // 
@@ -102,23 +105,22 @@
             label3.TabIndex = 4;
             label3.Text = "Mật khẩu ";
             // 
-            // textBox2
+            // txtPassword
             // 
-            textBox2.Location = new Point(93, 192);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '•';
-            textBox2.Size = new Size(385, 27);
-            textBox2.TabIndex = 3;
-            textBox2.UseSystemPasswordChar = true;
+            txtPassword.Location = new Point(93, 192);
+            txtPassword.Margin = new Padding(2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(385, 27);
+            txtPassword.TabIndex = 3;
+            txtPassword.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txtLoginInfo
             // 
-            textBox1.Location = new Point(93, 121);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(385, 27);
-            textBox1.TabIndex = 2;
+            txtLoginInfo.Location = new Point(93, 121);
+            txtLoginInfo.Margin = new Padding(2);
+            txtLoginInfo.Name = "txtLoginInfo";
+            txtLoginInfo.Size = new Size(385, 27);
+            txtLoginInfo.TabIndex = 2;
             // 
             // label2
             // 
@@ -158,13 +160,13 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txtLoginInfo;
         private Label label2;
         private Label label1;
         private Label label3;
-        private TextBox textBox2;
-        private Button button2;
-        private Button button1;
-        private CheckBox checkBox1;
+        private TextBox txtPassword;
+        private Button btnLogin;
+        private Button btnExit;
+        private CheckBox chkShowPassword;
     }
 }

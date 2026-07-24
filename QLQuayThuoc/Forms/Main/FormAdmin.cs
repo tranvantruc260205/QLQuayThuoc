@@ -1,3 +1,5 @@
+using QLQuayThuoc.Utils;
+
 namespace QLQuayThuoc
 {
     public partial class FormAdmin : Form
@@ -5,6 +7,9 @@ namespace QLQuayThuoc
         public FormAdmin()
         {
             InitializeComponent();
+            OpenUserControl(new UCNguoiDungPhanQuyen());
+
+            lblAdmin.Text = UserSession.UserId + " | " + UserSession.FullName + " | Admin";
         }
 
         private void OpenUserControl(UserControl userControl)
@@ -24,6 +29,12 @@ namespace QLQuayThuoc
         private void btnDanhMuc_Click(object sender, EventArgs e)
         {
             OpenUserControl(new UCDanhMucThuoc());
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            UserSession.Clear();
+            this.Close();
         }
     }
 }

@@ -36,19 +36,19 @@
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
             button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btnLamMoi = new Button();
+            btnAddUser = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
-            dataGridView1 = new DataGridView();
+            dgv = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -120,23 +120,25 @@
             button1.Text = "Tìm";
             button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnLamMoi
             // 
-            button2.Location = new Point(641, 92);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 29);
-            button2.TabIndex = 8;
-            button2.Text = "Làm mới";
-            button2.UseVisualStyleBackColor = true;
+            btnLamMoi.Location = new Point(655, 92);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(90, 29);
+            btnLamMoi.TabIndex = 8;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
-            // button3
+            // btnAddUser
             // 
-            button3.Location = new Point(837, 92);
-            button3.Name = "button3";
-            button3.Size = new Size(144, 29);
-            button3.TabIndex = 9;
-            button3.Text = "Thêm người dùng...";
-            button3.UseVisualStyleBackColor = true;
+            btnAddUser.Location = new Point(832, 92);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(149, 29);
+            btnAddUser.TabIndex = 9;
+            btnAddUser.Text = "Thêm người dùng";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
             // button4
             // 
@@ -165,20 +167,21 @@
             button6.Text = "Đặt lại mật khẩu...";
             button6.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgv
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dataGridView1.Location = new Point(3, 141);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(988, 287);
-            dataGridView1.TabIndex = 14;
+            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
+            dgv.Location = new Point(3, 141);
+            dgv.Name = "dgv";
+            dgv.RowHeadersVisible = false;
+            dgv.RowHeadersWidth = 51;
+            dgv.RowTemplate.Height = 29;
+            dgv.Size = new Size(988, 287);
+            dgv.TabIndex = 14;
             // 
             // Column1
             // 
+            Column1.DataPropertyName = "UserId";
             Column1.HeaderText = "Mã";
             Column1.MinimumWidth = 6;
             Column1.Name = "Column1";
@@ -186,6 +189,7 @@
             // 
             // Column2
             // 
+            Column2.DataPropertyName = "FullName";
             Column2.HeaderText = "Họ tên";
             Column2.MinimumWidth = 6;
             Column2.Name = "Column2";
@@ -193,6 +197,7 @@
             // 
             // Column3
             // 
+            Column3.DataPropertyName = "PhoneNumber";
             Column3.HeaderText = "Số điện thoại";
             Column3.MinimumWidth = 6;
             Column3.Name = "Column3";
@@ -200,6 +205,7 @@
             // 
             // Column4
             // 
+            Column4.DataPropertyName = "Email";
             Column4.HeaderText = "Email";
             Column4.MinimumWidth = 6;
             Column4.Name = "Column4";
@@ -207,6 +213,7 @@
             // 
             // Column5
             // 
+            Column5.DataPropertyName = "Role";
             Column5.HeaderText = "Role";
             Column5.MinimumWidth = 6;
             Column5.Name = "Column5";
@@ -214,21 +221,22 @@
             // 
             // Column6
             // 
+            Column6.DataPropertyName = "TrangThai";
             Column6.HeaderText = "Trạng thái";
             Column6.MinimumWidth = 6;
             Column6.Name = "Column6";
             Column6.Width = 240;
             // 
-            // NguoiDungPhanQuyen
+            // UCNguoiDungPhanQuyen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dgv);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnAddUser);
+            Controls.Add(btnLamMoi);
             Controls.Add(button1);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
@@ -237,9 +245,10 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "NguoiDungPhanQuyen";
+            Name = "UCNguoiDungPhanQuyen";
             Size = new Size(1006, 558);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += UCNguoiDungPhanQuyen_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -254,12 +263,12 @@
         private ComboBox comboBox1;
         private ComboBox comboBox2;
         private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btnLamMoi;
+        private Button btnAddUser;
         private Button button4;
         private Button button5;
         private Button button6;
-        private DataGridView dataGridView1;
+        private DataGridView dgv;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
