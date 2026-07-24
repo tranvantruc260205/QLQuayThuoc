@@ -58,7 +58,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasKey("MaBN");
 
-                    b.ToTable("BenhNhans");
+                    b.ToTable("BenhNhan", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.ChiTietCapTheoLo", b =>
@@ -79,7 +79,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaLo");
 
-                    b.ToTable("ChiTietCapTheoLos");
+                    b.ToTable("ChiTietCapTheoLo", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.ChiTietDonThuoc", b =>
@@ -114,7 +114,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaThuoc");
 
-                    b.ToTable("ChiTietDonThuocs");
+                    b.ToTable("ChiTietDonThuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.ChiTietPhieuXinCap", b =>
@@ -139,7 +139,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaThuoc");
 
-                    b.ToTable("ChiTietPhieuXinCaps");
+                    b.ToTable("ChiTietPhieuXinCap", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.ChiTietPhieuXuat", b =>
@@ -163,7 +163,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaLo");
 
-                    b.ToTable("ChiTietPhieuXuats");
+                    b.ToTable("ChiTietPhieuXuat", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.DonThuoc", b =>
@@ -201,7 +201,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaBN");
 
-                    b.ToTable("DonThuocs");
+                    b.ToTable("DonThuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.HoaDon", b =>
@@ -252,7 +252,7 @@ namespace QLQuayThuoc.Migrations
                     b.HasIndex("MaPhieuXuat")
                         .IsUnique();
 
-                    b.ToTable("HoaDons");
+                    b.ToTable("HoaDon", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.Kho", b =>
@@ -273,7 +273,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasKey("MaKho");
 
-                    b.ToTable("Khos");
+                    b.ToTable("Kho", (string)null);
 
                     b.HasData(
                         new
@@ -315,7 +315,7 @@ namespace QLQuayThuoc.Migrations
                     b.HasIndex("MaThuoc", "SoLo")
                         .IsUnique();
 
-                    b.ToTable("LoThuocs");
+                    b.ToTable("LoThuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.PhieuXinCapThuoc", b =>
@@ -366,7 +366,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("NguoiLapId");
 
-                    b.ToTable("PhieuXinCapThuocs");
+                    b.ToTable("PhieuXinCapThuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.PhieuXuatThuoc", b =>
@@ -396,7 +396,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaKho");
 
-                    b.ToTable("PhieuXuatThuocs");
+                    b.ToTable("PhieuXuatThuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.Thuoc", b =>
@@ -438,7 +438,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasKey("MaThuoc");
 
-                    b.ToTable("Thuocs");
+                    b.ToTable("Thuoc", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.TonKho", b =>
@@ -456,7 +456,7 @@ namespace QLQuayThuoc.Migrations
 
                     b.HasIndex("MaLo");
 
-                    b.ToTable("TonKhos");
+                    b.ToTable("TonKho", (string)null);
                 });
 
             modelBuilder.Entity("QLQuayThuoc.Models.User", b =>
@@ -498,7 +498,7 @@ namespace QLQuayThuoc.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("User", (string)null);
 
                     b.HasData(
                         new

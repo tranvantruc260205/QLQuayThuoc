@@ -45,6 +45,49 @@ namespace QLQuayThuoc.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // Đặt tên bảng ở dạng số ít
+            modelBuilder.Entity<User>()
+                .ToTable("User");
+
+            modelBuilder.Entity<BenhNhan>()
+                .ToTable("BenhNhan");
+
+            modelBuilder.Entity<DonThuoc>()
+                .ToTable("DonThuoc");
+
+            modelBuilder.Entity<ChiTietDonThuoc>()
+                .ToTable("ChiTietDonThuoc");
+
+            modelBuilder.Entity<Thuoc>()
+                .ToTable("Thuoc");
+
+            modelBuilder.Entity<LoThuoc>()
+                .ToTable("LoThuoc");
+
+            modelBuilder.Entity<Kho>()
+                .ToTable("Kho");
+
+            modelBuilder.Entity<TonKho>()
+                .ToTable("TonKho");
+
+            modelBuilder.Entity<PhieuXuatThuoc>()
+                .ToTable("PhieuXuatThuoc");
+
+            modelBuilder.Entity<ChiTietPhieuXuat>()
+                .ToTable("ChiTietPhieuXuat");
+
+            modelBuilder.Entity<HoaDon>()
+                .ToTable("HoaDon");
+
+            modelBuilder.Entity<PhieuXinCapThuoc>()
+                .ToTable("PhieuXinCapThuoc");
+
+            modelBuilder.Entity<ChiTietPhieuXinCap>()
+                .ToTable("ChiTietPhieuXinCap");
+
+            modelBuilder.Entity<ChiTietCapTheoLo>()
+                .ToTable("ChiTietCapTheoLo");
+
             // =========================================================
             // 1. KHÓA CHÍNH KÉP
             // =========================================================

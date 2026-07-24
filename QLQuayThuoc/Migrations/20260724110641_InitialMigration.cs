@@ -14,7 +14,7 @@ namespace QLQuayThuoc.Migrations
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "BenhNhans",
+                name: "BenhNhan",
                 columns: table => new
                 {
                     MaBN = table.Column<int>(type: "int", nullable: false)
@@ -30,12 +30,12 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BenhNhans", x => x.MaBN);
+                    table.PrimaryKey("PK_BenhNhan", x => x.MaBN);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Khos",
+                name: "Kho",
                 columns: table => new
                 {
                     MaKho = table.Column<int>(type: "int", nullable: false)
@@ -45,12 +45,12 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Khos", x => x.MaKho);
+                    table.PrimaryKey("PK_Kho", x => x.MaKho);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Thuocs",
+                name: "Thuoc",
                 columns: table => new
                 {
                     MaThuoc = table.Column<int>(type: "int", nullable: false)
@@ -65,12 +65,12 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Thuocs", x => x.MaThuoc);
+                    table.PrimaryKey("PK_Thuoc", x => x.MaThuoc);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     UserId = table.Column<int>(type: "int", nullable: false)
@@ -84,12 +84,12 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.PrimaryKey("PK_User", x => x.UserId);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "LoThuocs",
+                name: "LoThuoc",
                 columns: table => new
                 {
                     MaLo = table.Column<int>(type: "int", nullable: false)
@@ -101,18 +101,18 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LoThuocs", x => x.MaLo);
+                    table.PrimaryKey("PK_LoThuoc", x => x.MaLo);
                     table.ForeignKey(
-                        name: "FK_LoThuocs_Thuocs_MaThuoc",
+                        name: "FK_LoThuoc_Thuoc_MaThuoc",
                         column: x => x.MaThuoc,
-                        principalTable: "Thuocs",
+                        principalTable: "Thuoc",
                         principalColumn: "MaThuoc",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "DonThuocs",
+                name: "DonThuoc",
                 columns: table => new
                 {
                     MaDonThuoc = table.Column<int>(type: "int", nullable: false)
@@ -126,24 +126,24 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DonThuocs", x => x.MaDonThuoc);
+                    table.PrimaryKey("PK_DonThuoc", x => x.MaDonThuoc);
                     table.ForeignKey(
-                        name: "FK_DonThuocs_BenhNhans_MaBN",
+                        name: "FK_DonThuoc_BenhNhan_MaBN",
                         column: x => x.MaBN,
-                        principalTable: "BenhNhans",
+                        principalTable: "BenhNhan",
                         principalColumn: "MaBN",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_DonThuocs_Users_BacSiId",
+                        name: "FK_DonThuoc_User_BacSiId",
                         column: x => x.BacSiId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PhieuXinCapThuocs",
+                name: "PhieuXinCapThuoc",
                 columns: table => new
                 {
                     MaPhieu = table.Column<int>(type: "int", nullable: false)
@@ -160,36 +160,36 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhieuXinCapThuocs", x => x.MaPhieu);
+                    table.PrimaryKey("PK_PhieuXinCapThuoc", x => x.MaPhieu);
                     table.ForeignKey(
-                        name: "FK_PhieuXinCapThuocs_Khos_KhoCapId",
+                        name: "FK_PhieuXinCapThuoc_Kho_KhoCapId",
                         column: x => x.KhoCapId,
-                        principalTable: "Khos",
+                        principalTable: "Kho",
                         principalColumn: "MaKho",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PhieuXinCapThuocs_Khos_KhoNhanId",
+                        name: "FK_PhieuXinCapThuoc_Kho_KhoNhanId",
                         column: x => x.KhoNhanId,
-                        principalTable: "Khos",
+                        principalTable: "Kho",
                         principalColumn: "MaKho",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PhieuXinCapThuocs_Users_NguoiDuyetId",
+                        name: "FK_PhieuXinCapThuoc_User_NguoiDuyetId",
                         column: x => x.NguoiDuyetId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PhieuXinCapThuocs_Users_NguoiLapId",
+                        name: "FK_PhieuXinCapThuoc_User_NguoiLapId",
                         column: x => x.NguoiLapId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "TonKhos",
+                name: "TonKho",
                 columns: table => new
                 {
                     MaKho = table.Column<int>(type: "int", nullable: false),
@@ -198,24 +198,24 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TonKhos", x => new { x.MaKho, x.MaLo });
+                    table.PrimaryKey("PK_TonKho", x => new { x.MaKho, x.MaLo });
                     table.ForeignKey(
-                        name: "FK_TonKhos_Khos_MaKho",
+                        name: "FK_TonKho_Kho_MaKho",
                         column: x => x.MaKho,
-                        principalTable: "Khos",
+                        principalTable: "Kho",
                         principalColumn: "MaKho",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_TonKhos_LoThuocs_MaLo",
+                        name: "FK_TonKho_LoThuoc_MaLo",
                         column: x => x.MaLo,
-                        principalTable: "LoThuocs",
+                        principalTable: "LoThuoc",
                         principalColumn: "MaLo",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChiTietDonThuocs",
+                name: "ChiTietDonThuoc",
                 columns: table => new
                 {
                     MaDonThuoc = table.Column<int>(type: "int", nullable: false),
@@ -228,24 +228,24 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietDonThuocs", x => new { x.MaDonThuoc, x.MaThuoc });
+                    table.PrimaryKey("PK_ChiTietDonThuoc", x => new { x.MaDonThuoc, x.MaThuoc });
                     table.ForeignKey(
-                        name: "FK_ChiTietDonThuocs_DonThuocs_MaDonThuoc",
+                        name: "FK_ChiTietDonThuoc_DonThuoc_MaDonThuoc",
                         column: x => x.MaDonThuoc,
-                        principalTable: "DonThuocs",
+                        principalTable: "DonThuoc",
                         principalColumn: "MaDonThuoc",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ChiTietDonThuocs_Thuocs_MaThuoc",
+                        name: "FK_ChiTietDonThuoc_Thuoc_MaThuoc",
                         column: x => x.MaThuoc,
-                        principalTable: "Thuocs",
+                        principalTable: "Thuoc",
                         principalColumn: "MaThuoc",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PhieuXuatThuocs",
+                name: "PhieuXuatThuoc",
                 columns: table => new
                 {
                     MaPhieuXuat = table.Column<int>(type: "int", nullable: false)
@@ -257,30 +257,30 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhieuXuatThuocs", x => x.MaPhieuXuat);
+                    table.PrimaryKey("PK_PhieuXuatThuoc", x => x.MaPhieuXuat);
                     table.ForeignKey(
-                        name: "FK_PhieuXuatThuocs_DonThuocs_MaDonThuoc",
+                        name: "FK_PhieuXuatThuoc_DonThuoc_MaDonThuoc",
                         column: x => x.MaDonThuoc,
-                        principalTable: "DonThuocs",
+                        principalTable: "DonThuoc",
                         principalColumn: "MaDonThuoc",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PhieuXuatThuocs_Khos_MaKho",
+                        name: "FK_PhieuXuatThuoc_Kho_MaKho",
                         column: x => x.MaKho,
-                        principalTable: "Khos",
+                        principalTable: "Kho",
                         principalColumn: "MaKho",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PhieuXuatThuocs_Users_DuocSiId",
+                        name: "FK_PhieuXuatThuoc_User_DuocSiId",
                         column: x => x.DuocSiId,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChiTietPhieuXinCaps",
+                name: "ChiTietPhieuXinCap",
                 columns: table => new
                 {
                     MaPhieu = table.Column<int>(type: "int", nullable: false),
@@ -291,24 +291,24 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietPhieuXinCaps", x => new { x.MaPhieu, x.MaThuoc });
+                    table.PrimaryKey("PK_ChiTietPhieuXinCap", x => new { x.MaPhieu, x.MaThuoc });
                     table.ForeignKey(
-                        name: "FK_ChiTietPhieuXinCaps_PhieuXinCapThuocs_MaPhieu",
+                        name: "FK_ChiTietPhieuXinCap_PhieuXinCapThuoc_MaPhieu",
                         column: x => x.MaPhieu,
-                        principalTable: "PhieuXinCapThuocs",
+                        principalTable: "PhieuXinCapThuoc",
                         principalColumn: "MaPhieu",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ChiTietPhieuXinCaps_Thuocs_MaThuoc",
+                        name: "FK_ChiTietPhieuXinCap_Thuoc_MaThuoc",
                         column: x => x.MaThuoc,
-                        principalTable: "Thuocs",
+                        principalTable: "Thuoc",
                         principalColumn: "MaThuoc",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChiTietPhieuXuats",
+                name: "ChiTietPhieuXuat",
                 columns: table => new
                 {
                     MaPhieuXuat = table.Column<int>(type: "int", nullable: false),
@@ -319,24 +319,24 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietPhieuXuats", x => new { x.MaPhieuXuat, x.MaLo });
+                    table.PrimaryKey("PK_ChiTietPhieuXuat", x => new { x.MaPhieuXuat, x.MaLo });
                     table.ForeignKey(
-                        name: "FK_ChiTietPhieuXuats_LoThuocs_MaLo",
+                        name: "FK_ChiTietPhieuXuat_LoThuoc_MaLo",
                         column: x => x.MaLo,
-                        principalTable: "LoThuocs",
+                        principalTable: "LoThuoc",
                         principalColumn: "MaLo",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ChiTietPhieuXuats_PhieuXuatThuocs_MaPhieuXuat",
+                        name: "FK_ChiTietPhieuXuat_PhieuXuatThuoc_MaPhieuXuat",
                         column: x => x.MaPhieuXuat,
-                        principalTable: "PhieuXuatThuocs",
+                        principalTable: "PhieuXuatThuoc",
                         principalColumn: "MaPhieuXuat",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "HoaDons",
+                name: "HoaDon",
                 columns: table => new
                 {
                     MaHD = table.Column<int>(type: "int", nullable: false)
@@ -354,18 +354,18 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HoaDons", x => x.MaHD);
+                    table.PrimaryKey("PK_HoaDon", x => x.MaHD);
                     table.ForeignKey(
-                        name: "FK_HoaDons_PhieuXuatThuocs_MaPhieuXuat",
+                        name: "FK_HoaDon_PhieuXuatThuoc_MaPhieuXuat",
                         column: x => x.MaPhieuXuat,
-                        principalTable: "PhieuXuatThuocs",
+                        principalTable: "PhieuXuatThuoc",
                         principalColumn: "MaPhieuXuat",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChiTietCapTheoLos",
+                name: "ChiTietCapTheoLo",
                 columns: table => new
                 {
                     MaPhieu = table.Column<int>(type: "int", nullable: false),
@@ -375,129 +375,129 @@ namespace QLQuayThuoc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ChiTietCapTheoLos", x => new { x.MaPhieu, x.MaThuoc, x.MaLo });
+                    table.PrimaryKey("PK_ChiTietCapTheoLo", x => new { x.MaPhieu, x.MaThuoc, x.MaLo });
                     table.ForeignKey(
-                        name: "FK_ChiTietCapTheoLos_ChiTietPhieuXinCaps_MaPhieu_MaThuoc",
+                        name: "FK_ChiTietCapTheoLo_ChiTietPhieuXinCap_MaPhieu_MaThuoc",
                         columns: x => new { x.MaPhieu, x.MaThuoc },
-                        principalTable: "ChiTietPhieuXinCaps",
+                        principalTable: "ChiTietPhieuXinCap",
                         principalColumns: new[] { "MaPhieu", "MaThuoc" },
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ChiTietCapTheoLos_LoThuocs_MaLo",
+                        name: "FK_ChiTietCapTheoLo_LoThuoc_MaLo",
                         column: x => x.MaLo,
-                        principalTable: "LoThuocs",
+                        principalTable: "LoThuoc",
                         principalColumn: "MaLo",
                         onDelete: ReferentialAction.Restrict);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
 
             migrationBuilder.InsertData(
-                table: "Khos",
+                table: "Kho",
                 columns: new[] { "MaKho", "LoaiKho", "TenKho" },
                 values: new object[] { 1, "KHO_TONG", "Kho tổng" });
 
             migrationBuilder.InsertData(
-                table: "Khos",
+                table: "Kho",
                 columns: new[] { "MaKho", "LoaiKho", "TenKho" },
                 values: new object[] { 2, "KHO_QUAY", "Kho quầy" });
 
             migrationBuilder.InsertData(
-                table: "Users",
+                table: "User",
                 columns: new[] { "UserId", "Email", "FullName", "IsActive", "PasswordHash", "PhoneNumber", "Role" },
                 values: new object[] { 1, "admin@gmail.com", "Quản trị viên", true, "AQAAAAEAAYagAAAAEAoi8S+gZ0EPMOKWIBoNTKwyLG/nnw896ohJOJu9e08MOxZeFhPyujJBQkB85AfiZw==", "0000000000", "ADMIN" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietCapTheoLos_MaLo",
-                table: "ChiTietCapTheoLos",
+                name: "IX_ChiTietCapTheoLo_MaLo",
+                table: "ChiTietCapTheoLo",
                 column: "MaLo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietDonThuocs_MaThuoc",
-                table: "ChiTietDonThuocs",
+                name: "IX_ChiTietDonThuoc_MaThuoc",
+                table: "ChiTietDonThuoc",
                 column: "MaThuoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietPhieuXinCaps_MaThuoc",
-                table: "ChiTietPhieuXinCaps",
+                name: "IX_ChiTietPhieuXinCap_MaThuoc",
+                table: "ChiTietPhieuXinCap",
                 column: "MaThuoc");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ChiTietPhieuXuats_MaLo",
-                table: "ChiTietPhieuXuats",
+                name: "IX_ChiTietPhieuXuat_MaLo",
+                table: "ChiTietPhieuXuat",
                 column: "MaLo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DonThuocs_BacSiId",
-                table: "DonThuocs",
+                name: "IX_DonThuoc_BacSiId",
+                table: "DonThuoc",
                 column: "BacSiId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DonThuocs_MaBN",
-                table: "DonThuocs",
+                name: "IX_DonThuoc_MaBN",
+                table: "DonThuoc",
                 column: "MaBN");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HoaDons_MaGiaoDich",
-                table: "HoaDons",
+                name: "IX_HoaDon_MaGiaoDich",
+                table: "HoaDon",
                 column: "MaGiaoDich",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_HoaDons_MaPhieuXuat",
-                table: "HoaDons",
+                name: "IX_HoaDon_MaPhieuXuat",
+                table: "HoaDon",
                 column: "MaPhieuXuat",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_LoThuocs_MaThuoc_SoLo",
-                table: "LoThuocs",
+                name: "IX_LoThuoc_MaThuoc_SoLo",
+                table: "LoThuoc",
                 columns: new[] { "MaThuoc", "SoLo" },
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXinCapThuocs_KhoCapId",
-                table: "PhieuXinCapThuocs",
+                name: "IX_PhieuXinCapThuoc_KhoCapId",
+                table: "PhieuXinCapThuoc",
                 column: "KhoCapId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXinCapThuocs_KhoNhanId",
-                table: "PhieuXinCapThuocs",
+                name: "IX_PhieuXinCapThuoc_KhoNhanId",
+                table: "PhieuXinCapThuoc",
                 column: "KhoNhanId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXinCapThuocs_NguoiDuyetId",
-                table: "PhieuXinCapThuocs",
+                name: "IX_PhieuXinCapThuoc_NguoiDuyetId",
+                table: "PhieuXinCapThuoc",
                 column: "NguoiDuyetId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXinCapThuocs_NguoiLapId",
-                table: "PhieuXinCapThuocs",
+                name: "IX_PhieuXinCapThuoc_NguoiLapId",
+                table: "PhieuXinCapThuoc",
                 column: "NguoiLapId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXuatThuocs_DuocSiId",
-                table: "PhieuXuatThuocs",
+                name: "IX_PhieuXuatThuoc_DuocSiId",
+                table: "PhieuXuatThuoc",
                 column: "DuocSiId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXuatThuocs_MaDonThuoc",
-                table: "PhieuXuatThuocs",
+                name: "IX_PhieuXuatThuoc_MaDonThuoc",
+                table: "PhieuXuatThuoc",
                 column: "MaDonThuoc",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieuXuatThuocs_MaKho",
-                table: "PhieuXuatThuocs",
+                name: "IX_PhieuXuatThuoc_MaKho",
+                table: "PhieuXuatThuoc",
                 column: "MaKho");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TonKhos_MaLo",
-                table: "TonKhos",
+                name: "IX_TonKho_MaLo",
+                table: "TonKho",
                 column: "MaLo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_Email",
-                table: "Users",
+                name: "IX_User_Email",
+                table: "User",
                 column: "Email",
                 unique: true);
         }
@@ -505,46 +505,46 @@ namespace QLQuayThuoc.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ChiTietCapTheoLos");
+                name: "ChiTietCapTheoLo");
 
             migrationBuilder.DropTable(
-                name: "ChiTietDonThuocs");
+                name: "ChiTietDonThuoc");
 
             migrationBuilder.DropTable(
-                name: "ChiTietPhieuXuats");
+                name: "ChiTietPhieuXuat");
 
             migrationBuilder.DropTable(
-                name: "HoaDons");
+                name: "HoaDon");
 
             migrationBuilder.DropTable(
-                name: "TonKhos");
+                name: "TonKho");
 
             migrationBuilder.DropTable(
-                name: "ChiTietPhieuXinCaps");
+                name: "ChiTietPhieuXinCap");
 
             migrationBuilder.DropTable(
-                name: "PhieuXuatThuocs");
+                name: "PhieuXuatThuoc");
 
             migrationBuilder.DropTable(
-                name: "LoThuocs");
+                name: "LoThuoc");
 
             migrationBuilder.DropTable(
-                name: "PhieuXinCapThuocs");
+                name: "PhieuXinCapThuoc");
 
             migrationBuilder.DropTable(
-                name: "DonThuocs");
+                name: "DonThuoc");
 
             migrationBuilder.DropTable(
-                name: "Thuocs");
+                name: "Thuoc");
 
             migrationBuilder.DropTable(
-                name: "Khos");
+                name: "Kho");
 
             migrationBuilder.DropTable(
-                name: "BenhNhans");
+                name: "BenhNhan");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
         }
     }
 }
