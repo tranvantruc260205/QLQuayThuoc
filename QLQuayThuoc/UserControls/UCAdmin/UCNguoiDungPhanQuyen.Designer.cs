@@ -48,6 +48,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -56,75 +57,84 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(306, 31);
+            label1.Size = new Size(378, 38);
             label1.TabIndex = 0;
             label1.Text = "Người dùng và phân quyền";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(3, 69);
+            label2.Location = new Point(4, 86);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(70, 20);
+            label2.Size = new Size(84, 25);
             label2.TabIndex = 1;
             label2.Text = "Tìm kiếm";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(3, 94);
+            textBox1.Location = new Point(4, 118);
+            textBox1.Margin = new Padding(4, 4, 4, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 27);
+            textBox1.Size = new Size(260, 31);
             textBox1.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(227, 69);
+            label3.Location = new Point(284, 86);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(52, 20);
+            label3.Size = new Size(63, 25);
             label3.TabIndex = 3;
             label3.Text = "Vai trò";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(393, 69);
+            label4.Location = new Point(491, 86);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(75, 20);
+            label4.Size = new Size(89, 25);
             label4.TabIndex = 4;
             label4.Text = "Trạng thái";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(227, 93);
+            comboBox1.Location = new Point(284, 116);
+            comboBox1.Margin = new Padding(4, 4, 4, 4);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
+            comboBox1.Size = new Size(188, 33);
             comboBox1.TabIndex = 5;
             // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(393, 93);
+            comboBox2.Location = new Point(491, 116);
+            comboBox2.Margin = new Padding(4, 4, 4, 4);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
+            comboBox2.Size = new Size(188, 33);
             comboBox2.TabIndex = 6;
             // 
             // button1
             // 
-            button1.Location = new Point(560, 92);
+            button1.Location = new Point(700, 115);
+            button1.Margin = new Padding(4, 4, 4, 4);
             button1.Name = "button1";
-            button1.Size = new Size(75, 29);
+            button1.Size = new Size(94, 36);
             button1.TabIndex = 7;
             button1.Text = "Tìm";
             button1.UseVisualStyleBackColor = true;
             // 
             // btnLamMoi
             // 
-            btnLamMoi.Location = new Point(655, 92);
+            btnLamMoi.Location = new Point(819, 115);
+            btnLamMoi.Margin = new Padding(4, 4, 4, 4);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(90, 29);
+            btnLamMoi.Size = new Size(112, 36);
             btnLamMoi.TabIndex = 8;
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
@@ -132,9 +142,10 @@
             // 
             // btnAddUser
             // 
-            btnAddUser.Location = new Point(832, 92);
+            btnAddUser.Location = new Point(1040, 115);
+            btnAddUser.Margin = new Padding(4, 4, 4, 4);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(149, 29);
+            btnAddUser.Size = new Size(186, 36);
             btnAddUser.TabIndex = 9;
             btnAddUser.Text = "Thêm người dùng";
             btnAddUser.UseVisualStyleBackColor = true;
@@ -142,27 +153,30 @@
             // 
             // button4
             // 
-            button4.Location = new Point(646, 444);
+            button4.Location = new Point(686, 555);
+            button4.Margin = new Padding(4, 4, 4, 4);
             button4.Name = "button4";
-            button4.Size = new Size(64, 29);
+            button4.Size = new Size(80, 36);
             button4.TabIndex = 11;
             button4.Text = "Sửa";
             button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            button5.Location = new Point(716, 444);
+            button5.Location = new Point(895, 555);
+            button5.Margin = new Padding(4, 4, 4, 4);
             button5.Name = "button5";
-            button5.Size = new Size(110, 29);
+            button5.Size = new Size(138, 36);
             button5.TabIndex = 12;
             button5.Text = "Khóa/Mở";
             button5.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            button6.Location = new Point(832, 444);
+            button6.Location = new Point(1040, 555);
+            button6.Margin = new Padding(4, 4, 4, 4);
             button6.Name = "button6";
-            button6.Size = new Size(149, 29);
+            button6.Size = new Size(186, 36);
             button6.TabIndex = 13;
             button6.Text = "Đặt lại mật khẩu...";
             button6.UseVisualStyleBackColor = true;
@@ -171,12 +185,13 @@
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dgv.Location = new Point(3, 141);
+            dgv.Location = new Point(4, 176);
+            dgv.Margin = new Padding(4, 4, 4, 4);
             dgv.Name = "dgv";
             dgv.RowHeadersVisible = false;
             dgv.RowHeadersWidth = 51;
             dgv.RowTemplate.Height = 29;
-            dgv.Size = new Size(988, 287);
+            dgv.Size = new Size(1235, 359);
             dgv.TabIndex = 14;
             // 
             // Column1
@@ -227,10 +242,20 @@
             Column6.Name = "Column6";
             Column6.Width = 240;
             // 
+            // button2
+            // 
+            button2.Location = new Point(787, 556);
+            button2.Name = "button2";
+            button2.Size = new Size(92, 34);
+            button2.TabIndex = 15;
+            button2.Text = "Xóa";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // UCNguoiDungPhanQuyen
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button2);
             Controls.Add(dgv);
             Controls.Add(button6);
             Controls.Add(button5);
@@ -245,8 +270,9 @@
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "UCNguoiDungPhanQuyen";
-            Size = new Size(1006, 558);
+            Size = new Size(1258, 698);
             Load += UCNguoiDungPhanQuyen_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
@@ -275,5 +301,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
+        private Button button2;
     }
 }
