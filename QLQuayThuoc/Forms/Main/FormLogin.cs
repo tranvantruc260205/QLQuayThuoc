@@ -12,6 +12,8 @@ namespace QLQuayThuoc
         public FormLogin()
         {
             InitializeComponent();
+
+            AcceptButton = btnLogin;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -106,5 +108,6 @@ namespace QLQuayThuoc
         {
             txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
+
     }
 }

@@ -50,11 +50,11 @@
             groupBox1.Controls.Add(txtLoginInfo);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(127, 72);
+            groupBox1.Location = new Point(159, 90);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(610, 416);
+            groupBox1.Size = new Size(762, 520);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Đăng nhập hệ thống ";
@@ -63,10 +63,10 @@
             // 
             btnLogin.BackColor = SystemColors.ActiveCaption;
             btnLogin.FlatStyle = FlatStyle.Flat;
-            btnLogin.Location = new Point(373, 299);
+            btnLogin.Location = new Point(466, 374);
             btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(95, 33);
+            btnLogin.Size = new Size(119, 41);
             btnLogin.TabIndex = 7;
             btnLogin.Text = "Đăng nhập";
             btnLogin.UseVisualStyleBackColor = false;
@@ -74,10 +74,10 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(248, 299);
+            btnExit.Location = new Point(310, 374);
             btnExit.Margin = new Padding(2);
             btnExit.Name = "btnExit";
-            btnExit.Size = new Size(93, 33);
+            btnExit.Size = new Size(116, 41);
             btnExit.TabIndex = 6;
             btnExit.Text = "Thoát";
             btnExit.UseVisualStyleBackColor = true;
@@ -86,10 +86,10 @@
             // chkShowPassword
             // 
             chkShowPassword.AutoSize = true;
-            chkShowPassword.Location = new Point(93, 237);
+            chkShowPassword.Location = new Point(116, 296);
             chkShowPassword.Margin = new Padding(2);
             chkShowPassword.Name = "chkShowPassword";
-            chkShowPassword.Size = new Size(127, 24);
+            chkShowPassword.Size = new Size(153, 29);
             chkShowPassword.TabIndex = 5;
             chkShowPassword.Text = "Hiện mật khẩu";
             chkShowPassword.UseVisualStyleBackColor = true;
@@ -98,37 +98,37 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(93, 170);
+            label3.Location = new Point(116, 212);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(74, 20);
+            label3.Size = new Size(91, 25);
             label3.TabIndex = 4;
             label3.Text = "Mật khẩu ";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(93, 192);
+            txtPassword.Location = new Point(116, 240);
             txtPassword.Margin = new Padding(2);
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(385, 27);
+            txtPassword.Size = new Size(480, 31);
             txtPassword.TabIndex = 3;
             txtPassword.UseSystemPasswordChar = true;
             // 
             // txtLoginInfo
             // 
-            txtLoginInfo.Location = new Point(93, 121);
+            txtLoginInfo.Location = new Point(116, 151);
             txtLoginInfo.Margin = new Padding(2);
             txtLoginInfo.Name = "txtLoginInfo";
-            txtLoginInfo.Size = new Size(385, 27);
+            txtLoginInfo.Size = new Size(480, 31);
             txtLoginInfo.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(93, 99);
+            label2.Location = new Point(116, 124);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(172, 20);
+            label2.Size = new Size(205, 25);
             label2.TabIndex = 1;
             label2.Text = "Email hoặc số điện thoại";
             // 
@@ -136,18 +136,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 15.8571434F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(79, 38);
+            label1.Location = new Point(99, 48);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(472, 37);
+            label1.Size = new Size(563, 45);
             label1.TabIndex = 0;
             label1.Text = "QUẢN LÝ QUẦY THUỐC BỆNH VIỆN ";
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(867, 550);
+            ClientSize = new Size(1084, 688);
             Controls.Add(groupBox1);
             Margin = new Padding(2);
             Name = "FormLogin";
