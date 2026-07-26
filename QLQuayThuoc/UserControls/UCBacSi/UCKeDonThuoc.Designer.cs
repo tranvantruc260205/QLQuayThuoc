@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContent = new Panel();
             button10 = new Button();
-            button9 = new Button();
             button8 = new Button();
             button7 = new Button();
             button5 = new Button();
@@ -65,7 +64,6 @@
             // 
             panelContent.BackColor = SystemColors.Window;
             panelContent.Controls.Add(button10);
-            panelContent.Controls.Add(button9);
             panelContent.Controls.Add(button8);
             panelContent.Controls.Add(button7);
             panelContent.Controls.Add(button5);
@@ -81,25 +79,16 @@
             // 
             // button10
             // 
-            button10.Location = new Point(925, 435);
+            button10.Location = new Point(925, 445);
             button10.Name = "button10";
             button10.Size = new Size(114, 29);
             button10.TabIndex = 23;
             button10.Text = "Lưu và in đơn";
             button10.UseVisualStyleBackColor = true;
             // 
-            // button9
-            // 
-            button9.Location = new Point(811, 435);
-            button9.Name = "button9";
-            button9.Size = new Size(94, 29);
-            button9.TabIndex = 22;
-            button9.Text = "Quay lại";
-            button9.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
-            button8.Location = new Point(292, 145);
+            button8.Location = new Point(285, 144);
             button8.Name = "button8";
             button8.Size = new Size(94, 29);
             button8.TabIndex = 21;
@@ -108,7 +97,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(169, 145);
+            button7.Location = new Point(170, 144);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 20;
@@ -249,14 +238,14 @@
             dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
             dataGridView1.EnableHeadersVisualStyles = false;
@@ -352,7 +341,6 @@
 
         private Panel panelContent;
         private Button button10;
-        private Button button9;
         private Button button8;
         private Button button7;
         private Button button5;

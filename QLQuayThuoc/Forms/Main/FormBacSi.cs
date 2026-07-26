@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLQuayThuoc.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,12 +25,9 @@ namespace QLQuayThuoc
         public FormBacSi()
         {
             InitializeComponent();
+
+            lblBacSi.Text = UserSession.UserId + " | " + UserSession.FullName + " | Bác sĩ";
         }
-
-
-
-        private void panelContent_Paint(object sender, PaintEventArgs e)
-        { }
 
 
         private void btn_DonThuoc_Click(object sender, EventArgs e)
@@ -45,6 +43,12 @@ namespace QLQuayThuoc
         private void DanhSachDonThuoc_Load(object sender, EventArgs e)
         {
             OpenUserControl(new UCDanhSachDonThuoc());
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            UserSession.Clear();
+            this.Close();
         }
     }
 }

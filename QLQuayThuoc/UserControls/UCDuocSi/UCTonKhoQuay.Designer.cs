@@ -38,6 +38,13 @@
             label14 = new Label();
             label13 = new Label();
             dataGridView1 = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             panel9 = new Panel();
             label12 = new Label();
             label8 = new Label();
@@ -51,13 +58,6 @@
             label9 = new Label();
             label5 = new Label();
             label4 = new Label();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel9.SuspendLayout();
             panel8.SuspendLayout();
@@ -160,7 +160,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
             dataGridView1.GridColor = SystemColors.ButtonShadow;
-            dataGridView1.Location = new Point(9, 188);
+            dataGridView1.Location = new Point(9, 191);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
@@ -168,6 +168,55 @@
             dataGridView1.RowTemplate.Height = 37;
             dataGridView1.Size = new Size(925, 294);
             dataGridView1.TabIndex = 36;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Mã thuốc";
+            Column1.MinimumWidth = 9;
+            Column1.Name = "Column1";
+            Column1.Width = 150;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Tên thuốc";
+            Column2.MinimumWidth = 9;
+            Column2.Name = "Column2";
+            Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Số lô";
+            Column3.MinimumWidth = 9;
+            Column3.Name = "Column3";
+            Column3.Width = 200;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Ngày hết hạn";
+            Column4.MinimumWidth = 9;
+            Column4.Name = "Column4";
+            Column4.Width = 250;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Tồn quầy";
+            Column5.MinimumWidth = 9;
+            Column5.Name = "Column5";
+            Column5.Width = 130;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Đơn vị";
+            Column6.MinimumWidth = 9;
+            Column6.Name = "Column6";
+            Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Trạng thái ";
+            Column7.MinimumWidth = 9;
+            Column7.Name = "Column7";
+            Column7.Width = 205;
             // 
             // panel9
             // 
@@ -303,55 +352,6 @@
             label4.Size = new Size(140, 25);
             label4.TabIndex = 31;
             label4.Text = "Tồn kho quầy ";
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã thuốc";
-            Column1.MinimumWidth = 9;
-            Column1.Name = "Column1";
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên thuốc";
-            Column2.MinimumWidth = 9;
-            Column2.Name = "Column2";
-            Column2.Width = 300;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Số lô";
-            Column3.MinimumWidth = 9;
-            Column3.Name = "Column3";
-            Column3.Width = 200;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Ngày hết hạn";
-            Column4.MinimumWidth = 9;
-            Column4.Name = "Column4";
-            Column4.Width = 250;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Tồn quầy";
-            Column5.MinimumWidth = 9;
-            Column5.Name = "Column5";
-            Column5.Width = 130;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Đơn vị";
-            Column6.MinimumWidth = 9;
-            Column6.Name = "Column6";
-            Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "Trạng thái ";
-            Column7.MinimumWidth = 9;
-            Column7.Name = "Column7";
-            Column7.Width = 205;
             // 
             // UCTonKhoQuay
             // 
