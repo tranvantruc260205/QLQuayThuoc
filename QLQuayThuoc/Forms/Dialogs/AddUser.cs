@@ -10,6 +10,8 @@ namespace QLQuayThuoc.Forms.Dialogs
         public AddUser()
         {
             InitializeComponent();
+
+            AcceptButton = btnXacNhan;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
