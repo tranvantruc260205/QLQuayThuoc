@@ -47,6 +47,17 @@ namespace QLQuayThuoc
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
+            DialogResult ketQua =
+                MessageBox.Show(
+                    "Bạn có chắc muốn đăng xuất không?",
+                    "Xác nhận đăng xuất",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (ketQua != DialogResult.Yes)
+            {
+                return;
+            }
             UserSession.Clear();
             this.Close();
         }

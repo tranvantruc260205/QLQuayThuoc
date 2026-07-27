@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class EditUser : Form
+    public partial class Admin_EditUser : Form
     {
         private int userId;
-        public EditUser()
+        public Admin_EditUser()
         {
             InitializeComponent();
 
@@ -24,7 +24,7 @@ namespace QLQuayThuoc.Forms.Dialogs
             LoadVaiTro();
         }
 
-        public EditUser(int userId) : this()
+        public Admin_EditUser(int userId) : this()
         {
             this.userId = userId;
 

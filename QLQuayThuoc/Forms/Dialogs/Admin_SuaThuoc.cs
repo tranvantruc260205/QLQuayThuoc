@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class SuaThuoc : Form
+    public partial class Admin_SuaThuoc : Form
     {
         private readonly int maThuoc;
-        public SuaThuoc(int maThuoc)
+        public Admin_SuaThuoc(int maThuoc)
         {
             InitializeComponent();
 

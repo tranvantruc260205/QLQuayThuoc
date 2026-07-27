@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc
 {
-    public partial class ThanhToan : Form
+    public partial class DuocSi_ThanhToan : Form
     {
-        public ThanhToan()
+        public DuocSi_ThanhToan()
         {
             InitializeComponent();
         }

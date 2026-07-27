@@ -39,8 +39,8 @@ namespace QLQuayThuoc
         private void MoDialogThemSuaThuoc(
     int? maThuocChonBanDau = null)
         {
-            using (ThemSuaThuocDonThuoc dialog =
-                new ThemSuaThuocDonThuoc(
+            using (BacSi_ThemSuaThuocDonThuoc dialog =
+                new BacSi_ThemSuaThuocDonThuoc(
                     danhSachThuocTam,
                     maThuocChonBanDau))
             {
@@ -771,8 +771,8 @@ namespace QLQuayThuoc
 
         private void btnChonBN_Click(object sender, EventArgs e)
         {
-            using (ChonBenhNhan dialog =
-                new ChonBenhNhan())
+            using (BacSi_ChonBenhNhan dialog =
+                new BacSi_ChonBenhNhan())
             {
                 if (dialog.ShowDialog() !=
                         DialogResult.OK ||
@@ -899,7 +899,7 @@ namespace QLQuayThuoc
                             ChanDoan =
                                 txtChanDoan.Text.Trim(),
 
-                            TrangThai = "DA_XUAT_DON",
+                            TrangThai = "CHO_XUAT_THUOC",
 
                             GhiChu =
                                 string.IsNullOrWhiteSpace(

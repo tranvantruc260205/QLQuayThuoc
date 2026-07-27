@@ -13,17 +13,17 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class ResetPassword : Form
+    public partial class Admin_ResetPassword : Form
     {
         private int userId;
-        public ResetPassword()
+        public Admin_ResetPassword()
         {
             InitializeComponent();
 
             AcceptButton = btnXacNhan;
         }
 
-        public ResetPassword(int userId) : this()
+        public Admin_ResetPassword(int userId) : this()
         {
             this.userId = userId;
 

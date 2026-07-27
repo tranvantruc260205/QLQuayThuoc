@@ -1,6 +1,6 @@
 ﻿namespace QLQuayThuoc.Forms.Dialogs
 {
-    partial class ChonBenhNhan
+    partial class BacSi_ChonBenhNhan
     {
         /// <summary>
         /// Required designer variable.

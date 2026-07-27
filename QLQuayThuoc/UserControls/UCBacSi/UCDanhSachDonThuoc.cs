@@ -71,7 +71,7 @@ namespace QLQuayThuoc
                         .AsNoTracking()
                         .Where(x =>
                             x.BacSiId == UserSession.UserId &&
-                            x.TrangThai == "DA_XUAT_DON");
+                            (x.TrangThai == "CHO_XUAT_THUOC" || x.TrangThai == "DA_XUAT_THUOC"));
 
                     // Tìm theo mã đơn hoặc tên bệnh nhân
                     if (!string.IsNullOrWhiteSpace(tuKhoa))
@@ -125,6 +125,8 @@ namespace QLQuayThuoc
                             SoThuoc =
                                 x.ChiTietDonThuocs.Count(),
 
+                            x.TrangThai,
+
                             x.GhiChu
                         })
                         .ToList();
@@ -138,7 +140,7 @@ namespace QLQuayThuoc
                             donThuoc.NgayKeDon.ToString(
                                 "dd/MM/yyyy HH:mm"),
                             donThuoc.SoThuoc,
-                            "Đã xuất đơn",
+                            HienThiTrangThai(donThuoc.TrangThai),
                             donThuoc.GhiChu ?? "",
                             "Xem");
                     }
@@ -152,6 +154,22 @@ namespace QLQuayThuoc
                     "Lỗi",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
+            }
+        }
+
+        private string HienThiTrangThai(
+    string trangThai)
+        {
+            switch (trangThai)
+            {
+                case "CHO_XUAT_THUOC":
+                    return "Chờ xuất thuốc";
+
+                case "DA_XUAT_THUOC":
+                    return "Đã xuất thuốc";
+
+                default:
+                    return trangThai;
             }
         }
 
@@ -235,7 +253,7 @@ namespace QLQuayThuoc
             int maDonThuoc = Convert.ToInt32(
                 dgv.CurrentRow.Cells[0].Value);
 
-            using (XemChiTietDonThuoc dialog = new XemChiTietDonThuoc(maDonThuoc))
+            using (BacSi_XemChiTietDonThuoc dialog = new BacSi_XemChiTietDonThuoc(maDonThuoc))
             {
                 dialog.ShowDialog();
             }

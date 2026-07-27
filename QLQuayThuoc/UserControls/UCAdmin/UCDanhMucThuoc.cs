@@ -150,7 +150,7 @@ namespace QLQuayThuoc
 
         private void btnThemThuoc_Click(object sender, EventArgs e)
         {
-            using (ThemThuoc dialog = new ThemThuoc())
+            using (Admin_ThemThuoc dialog = new Admin_ThemThuoc())
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -255,7 +255,7 @@ namespace QLQuayThuoc
 
             int maThuoc = Convert.ToInt32(dgv.CurrentRow.Cells[0].Value);
 
-            using (SuaThuoc dialog = new SuaThuoc(maThuoc))
+            using (Admin_SuaThuoc dialog = new Admin_SuaThuoc(maThuoc))
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {

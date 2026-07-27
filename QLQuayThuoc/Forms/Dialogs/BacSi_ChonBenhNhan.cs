@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class ChonBenhNhan : Form
+    public partial class BacSi_ChonBenhNhan : Form
     {
         public BenhNhan? BenhNhanDuocChon { get; private set; }
-        public ChonBenhNhan()
+        public BacSi_ChonBenhNhan()
         {
             InitializeComponent();
 

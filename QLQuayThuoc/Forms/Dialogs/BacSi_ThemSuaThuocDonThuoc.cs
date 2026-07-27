@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class ThemSuaThuocDonThuoc : Form
+    public partial class BacSi_ThemSuaThuocDonThuoc : Form
     {
         private readonly Dictionary<int, ChiTietDonThuoc> danhSachThuocTam = new();
 
@@ -23,7 +23,7 @@ namespace QLQuayThuoc.Forms.Dialogs
 
         public List<ChiTietDonThuoc> DanhSachThuocDaChon { get; private set; } = new();
 
-        public ThemSuaThuocDonThuoc()
+        public BacSi_ThemSuaThuocDonThuoc()
         {
             InitializeComponent();
 
@@ -84,7 +84,7 @@ namespace QLQuayThuoc.Forms.Dialogs
                 DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        public ThemSuaThuocDonThuoc(
+        public BacSi_ThemSuaThuocDonThuoc(
             IEnumerable<ChiTietDonThuoc> danhSachHienTai,
             int? maThuocChonBanDau = null) : this()
         {

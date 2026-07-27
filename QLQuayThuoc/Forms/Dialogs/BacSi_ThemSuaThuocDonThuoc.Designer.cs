@@ -1,6 +1,6 @@
 ﻿namespace QLQuayThuoc.Forms.Dialogs
 {
-    partial class ThemSuaThuocDonThuoc
+    partial class BacSi_ThemSuaThuocDonThuoc
     {
         /// <summary>
         /// Required designer variable.

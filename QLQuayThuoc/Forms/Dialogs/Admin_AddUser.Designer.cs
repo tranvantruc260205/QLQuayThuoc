@@ -1,6 +1,6 @@
 ﻿namespace QLQuayThuoc.Forms.Dialogs
 {
-    partial class AddUser
+    partial class Admin_AddUser
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace QLQuayThuoc.Forms.Dialogs
 {
-    partial class ResetPassword
+    partial class Admin_ResetPassword
     {
         /// <summary>
         /// Required designer variable.

@@ -57,7 +57,7 @@ namespace QLQuayThuoc
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            using (AddUser dialog = new AddUser())
+            using (Admin_AddUser dialog = new Admin_AddUser())
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -323,7 +323,7 @@ namespace QLQuayThuoc
             int userId = Convert.ToInt32(
                 dgv.CurrentRow.Cells[0].Value);
 
-            using (EditUser dialog = new EditUser(userId))
+            using (Admin_EditUser dialog = new Admin_EditUser(userId))
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -348,7 +348,7 @@ namespace QLQuayThuoc
             int userId = Convert.ToInt32(
                 dgv.CurrentRow.Cells[0].Value);
 
-            using (ResetPassword dialog = new ResetPassword(userId))
+            using (Admin_ResetPassword dialog = new Admin_ResetPassword(userId))
             {
                 dialog.ShowDialog();
             }

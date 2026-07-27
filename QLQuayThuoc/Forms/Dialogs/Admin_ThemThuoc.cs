@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class ThemThuoc : Form
+    public partial class Admin_ThemThuoc : Form
     {
-        public ThemThuoc()
+        public Admin_ThemThuoc()
         {
             InitializeComponent();
 

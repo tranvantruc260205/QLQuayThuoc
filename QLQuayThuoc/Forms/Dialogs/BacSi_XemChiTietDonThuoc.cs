@@ -7,7 +7,7 @@ using System.Drawing.Printing;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class XemChiTietDonThuoc : Form
+    public partial class BacSi_XemChiTietDonThuoc : Form
     {
         private int maDonThuoc;
 
@@ -22,7 +22,7 @@ namespace QLQuayThuoc.Forms.Dialogs
             new List<ChiTietDonThuoc>();
 
         private int viTriThuocDangIn;
-        public XemChiTietDonThuoc()
+        public BacSi_XemChiTietDonThuoc()
         {
             InitializeComponent();
 
@@ -36,9 +36,25 @@ namespace QLQuayThuoc.Forms.Dialogs
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        public XemChiTietDonThuoc(int maDonThuoc) : this()
+        public BacSi_XemChiTietDonThuoc(int maDonThuoc) : this()
         {
             this.maDonThuoc = maDonThuoc;
+        }
+
+        private string HienThiTrangThai(
+    string trangThai)
+        {
+            switch (trangThai)
+            {
+                case "CHO_XUAT_THUOC":
+                    return "Chờ xuất thuốc";
+
+                case "DA_XUAT_THUOC":
+                    return "Đã xuất thuốc";
+
+                default:
+                    return trangThai;
+            }
         }
 
         private void LoadChiTietDonThuoc()
@@ -109,10 +125,7 @@ namespace QLQuayThuoc.Forms.Dialogs
                     lblChanDoan.Text =
                         donThuoc.ChanDoan;
 
-                    lblTrangThai.Text =
-                        donThuoc.TrangThai == "DA_XUAT_DON"
-                            ? "Đã xuất đơn"
-                            : donThuoc.TrangThai;
+                    lblTrangThai.Text = HienThiTrangThai(donThuoc.TrangThai);
 
                     lblGhiChu.Text =
                         string.IsNullOrWhiteSpace(
