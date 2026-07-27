@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelContent = new Panel();
+            button1 = new Button();
             dgv = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -56,6 +57,7 @@
             // panelContent
             // 
             panelContent.BackColor = SystemColors.Window;
+            panelContent.Controls.Add(button1);
             panelContent.Controls.Add(dgv);
             panelContent.Controls.Add(dtpDenNgay);
             panelContent.Controls.Add(dtpTuNgay);
@@ -74,6 +76,16 @@
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(1143, 489);
             panelContent.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(853, 94);
+            button1.Name = "button1";
+            button1.Size = new Size(110, 29);
+            button1.TabIndex = 17;
+            button1.Text = "Xem chi tiết";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // dgv
             // 
@@ -98,7 +110,7 @@
             dgv.RowHeadersVisible = false;
             dgv.RowHeadersWidth = 51;
             dgv.RowTemplate.Height = 29;
-            dgv.Size = new Size(944, 260);
+            dgv.Size = new Size(944, 321);
             dgv.TabIndex = 16;
             // 
             // Column1
@@ -166,7 +178,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(940, 94);
+            button7.Location = new Point(979, 94);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 11;
@@ -185,7 +197,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(776, 94);
+            button5.Location = new Point(753, 94);
             button5.Name = "button5";
             button5.Size = new Size(94, 29);
             button5.TabIndex = 9;
@@ -198,7 +210,7 @@
             button4.BackColor = Color.PaleTurquoise;
             button4.FlatAppearance.BorderColor = Color.DarkBlue;
             button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(664, 94);
+            button4.Location = new Point(653, 94);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 8;
@@ -288,5 +300,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column7;
+        private Button button1;
     }
 }

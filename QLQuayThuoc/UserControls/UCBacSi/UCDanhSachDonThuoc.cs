@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QLQuayThuoc.Data;
+using QLQuayThuoc.Forms.Dialogs;
 using QLQuayThuoc.Utils;
 using System;
 using System.Collections.Generic;
@@ -215,6 +216,29 @@ namespace QLQuayThuoc
         private void button7_Click(object sender, EventArgs e)
         {
             OpenUserControl(new UCKeDonThuoc());
+        }
+
+        //Button "Xem chi tiết"
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgv.CurrentRow == null || dgv.CurrentRow.Cells[0].Value == null)
+            {
+                MessageBox.Show(
+                    "Vui lòng chọn đơn thuốc cần xem!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            int maDonThuoc = Convert.ToInt32(
+                dgv.CurrentRow.Cells[0].Value);
+
+            using (XemChiTietDonThuoc dialog = new XemChiTietDonThuoc(maDonThuoc))
+            {
+                dialog.ShowDialog();
+            }
         }
     }
 }

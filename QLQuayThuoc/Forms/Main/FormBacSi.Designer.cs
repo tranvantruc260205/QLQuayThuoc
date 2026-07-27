@@ -49,13 +49,13 @@
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1177, 50);
+            panelHeader.Size = new Size(1226, 50);
             panelHeader.TabIndex = 0;
             // 
             // lblBacSi
             // 
             lblBacSi.AutoSize = true;
-            lblBacSi.Location = new Point(979, 18);
+            lblBacSi.Location = new Point(1004, 18);
             lblBacSi.Name = "lblBacSi";
             lblBacSi.Size = new Size(186, 20);
             lblBacSi.TabIndex = 1;
@@ -82,14 +82,14 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 50);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(130, 400);
+            panelMenu.Size = new Size(130, 495);
             panelMenu.TabIndex = 1;
             // 
             // btnDangXuat
             // 
             btnDangXuat.AccessibleRole = AccessibleRole.Clock;
             btnDangXuat.BackColor = SystemColors.ButtonFace;
-            btnDangXuat.Location = new Point(12, 359);
+            btnDangXuat.Location = new Point(12, 454);
             btnDangXuat.Name = "btnDangXuat";
             btnDangXuat.Size = new Size(104, 29);
             btnDangXuat.TabIndex = 3;
@@ -137,14 +137,14 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(130, 50);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1047, 400);
+            panelContent.Size = new Size(1096, 495);
             panelContent.TabIndex = 2;
             // 
             // FormBacSi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1177, 450);
+            ClientSize = new Size(1226, 545);
             Controls.Add(panelContent);
             Controls.Add(panelMenu);
             Controls.Add(panelHeader);
