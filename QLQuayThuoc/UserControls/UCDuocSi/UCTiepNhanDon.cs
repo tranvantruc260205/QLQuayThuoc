@@ -760,5 +760,67 @@ namespace QLQuayThuoc.UserControls
             ChonCacLoDaPhanBo();
             CapNhatTrangThaiThanhToan();
         }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            LuuLuaChonLoDangHienThi();
+            CapNhatTrangThaiThanhToan();
+
+            if (maDonThuocDangTraCuu <= 0 ||
+                maKhoQuay <= 0)
+            {
+                MessageBox.Show(
+                    "Vui lòng tra cứu đơn thuốc trước!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            if (!btnThanhToan.Enabled)
+            {
+                MessageBox.Show(
+                    "Bạn phải chọn đúng và đủ số lượng thuốc cần xuất!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+            Dictionary<int, Dictionary<int, int>>
+                danhSachLoDaChon =
+                    soLuongXuatTheoThuoc
+                        .ToDictionary(
+                            thuoc => thuoc.Key,
+                            thuoc => thuoc.Value
+                                .Where(lo =>
+                                    lo.Value > 0)
+                                .ToDictionary(
+                                    lo => lo.Key,
+                                    lo => lo.Value));
+
+            using (QLQuayThuoc.DuocSi_ThanhToan
+                frmThanhToan =
+                    new QLQuayThuoc.DuocSi_ThanhToan(
+                        maDonThuocDangTraCuu,
+                        maKhoQuay,
+                        danhSachLoDaChon))
+            {
+                DialogResult ketQua =
+                    frmThanhToan.ShowDialog(
+                        FindForm());
+
+                if (ketQua != DialogResult.OK)
+                {
+                    return;
+                }
+            }
+
+            XoaKetQuaTraCuu();
+            txtMaDonThuoc.Clear();
+            txtMaDonThuoc.Focus();
+        }
     }
 }

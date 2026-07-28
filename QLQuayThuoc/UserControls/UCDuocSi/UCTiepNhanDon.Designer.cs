@@ -310,6 +310,7 @@
             btnThanhToan.TabIndex = 4;
             btnThanhToan.Text = "Thanh toán";
             btnThanhToan.UseVisualStyleBackColor = true;
+            btnThanhToan.Click += btnThanhToan_Click;
             // 
             // UCTiepNhanDon
             // 

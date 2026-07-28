@@ -65,13 +65,13 @@
             imgQR = new PictureBox();
             lblSoTien = new Label();
             lblNoiDung = new Label();
-            groupBox3 = new GroupBox();
+            grbQRCode = new GroupBox();
             lblTrangThai = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgQR).BeginInit();
-            groupBox3.SuspendLayout();
+            grbQRCode.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -330,13 +330,14 @@
             rdoQuetMa.Name = "rdoQuetMa";
             rdoQuetMa.Size = new Size(156, 24);
             rdoQuetMa.TabIndex = 5;
-            rdoQuetMa.TabStop = true;
             rdoQuetMa.Text = "Quét mã (QRCode)";
             rdoQuetMa.UseVisualStyleBackColor = true;
+            rdoQuetMa.CheckedChanged += rdoQuetMa_CheckedChanged;
             // 
             // rdoTienMat
             // 
             rdoTienMat.AutoSize = true;
+            rdoTienMat.Checked = true;
             rdoTienMat.Location = new Point(28, 170);
             rdoTienMat.Name = "rdoTienMat";
             rdoTienMat.Size = new Size(88, 24);
@@ -344,6 +345,7 @@
             rdoTienMat.TabStop = true;
             rdoTienMat.Text = "Tiền mặt";
             rdoTienMat.UseVisualStyleBackColor = true;
+            rdoTienMat.CheckedChanged += rdoTienMat_CheckedChanged;
             // 
             // label5
             // 
@@ -398,6 +400,7 @@
             btnHuy.TabIndex = 10;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // btnXacNhan
             // 
@@ -412,7 +415,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(277, 75);
+            label6.Location = new Point(235, 67);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
             label6.Size = new Size(82, 20);
@@ -422,7 +425,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(277, 34);
+            label7.Location = new Point(235, 26);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(66, 20);
@@ -432,7 +435,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(277, 116);
+            label8.Location = new Point(235, 108);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(86, 20);
@@ -452,7 +455,7 @@
             // 
             lblSoTien.AutoSize = true;
             lblSoTien.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSoTien.Location = new Point(368, 34);
+            lblSoTien.Location = new Point(326, 26);
             lblSoTien.Name = "lblSoTien";
             lblSoTien.Size = new Size(51, 20);
             lblSoTien.TabIndex = 4;
@@ -462,36 +465,36 @@
             // 
             lblNoiDung.AutoSize = true;
             lblNoiDung.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNoiDung.Location = new Point(368, 73);
+            lblNoiDung.Location = new Point(326, 65);
             lblNoiDung.Name = "lblNoiDung";
             lblNoiDung.Size = new Size(69, 23);
             lblNoiDung.TabIndex = 5;
             lblNoiDung.Text = "label10";
             // 
-            // groupBox3
+            // grbQRCode
             // 
-            groupBox3.BackColor = SystemColors.ControlLight;
-            groupBox3.Controls.Add(lblTrangThai);
-            groupBox3.Controls.Add(lblNoiDung);
-            groupBox3.Controls.Add(lblSoTien);
-            groupBox3.Controls.Add(imgQR);
-            groupBox3.Controls.Add(label8);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(label6);
-            groupBox3.Location = new Point(589, 317);
-            groupBox3.Margin = new Padding(2);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(2);
-            groupBox3.Size = new Size(551, 208);
-            groupBox3.TabIndex = 9;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "QR thanh toán ";
+            grbQRCode.BackColor = SystemColors.ControlLight;
+            grbQRCode.Controls.Add(lblTrangThai);
+            grbQRCode.Controls.Add(lblNoiDung);
+            grbQRCode.Controls.Add(lblSoTien);
+            grbQRCode.Controls.Add(imgQR);
+            grbQRCode.Controls.Add(label8);
+            grbQRCode.Controls.Add(label7);
+            grbQRCode.Controls.Add(label6);
+            grbQRCode.Location = new Point(589, 317);
+            grbQRCode.Margin = new Padding(2);
+            grbQRCode.Name = "grbQRCode";
+            grbQRCode.Padding = new Padding(2);
+            grbQRCode.Size = new Size(551, 208);
+            grbQRCode.TabIndex = 9;
+            grbQRCode.TabStop = false;
+            grbQRCode.Text = "QR thanh toán ";
             // 
             // lblTrangThai
             // 
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTrangThai.Location = new Point(368, 116);
+            lblTrangThai.Location = new Point(326, 108);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(60, 20);
             lblTrangThai.TabIndex = 6;
@@ -504,21 +507,22 @@
             ClientSize = new Size(1164, 598);
             Controls.Add(btnXacNhan);
             Controls.Add(btnHuy);
-            Controls.Add(groupBox3);
+            Controls.Add(grbQRCode);
             Controls.Add(groupBox2);
             Controls.Add(dgv);
             Controls.Add(groupBox1);
             Margin = new Padding(2);
             Name = "DuocSi_ThanhToan";
             Text = "Thanh toán và in hóa đơn ";
+            Load += DuocSi_ThanhToan_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgQR).EndInit();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            grbQRCode.ResumeLayout(false);
+            grbQRCode.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -546,7 +550,7 @@
         private PictureBox imgQR;
         private Label lblSoTien;
         private Label lblNoiDung;
-        private GroupBox groupBox3;
+        private GroupBox grbQRCode;
         private Label lblTrangThai;
         private Label lblTienBNTra;
         private Label lblBHYTtt;
