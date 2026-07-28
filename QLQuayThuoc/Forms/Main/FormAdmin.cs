@@ -1,3 +1,4 @@
+using QLQuayThuoc.UserControls.UCAdmin;
 using QLQuayThuoc.Utils;
 
 namespace QLQuayThuoc
@@ -46,6 +47,11 @@ namespace QLQuayThuoc
             }
             UserSession.Clear();
             this.Close();
+        }
+
+        private void btnQuanLiThanhToanQRCode_Click(object sender, EventArgs e)
+        {
+            OpenUserControl(new UCQuanLiThanhToanQRCode());
         }
     }
 }

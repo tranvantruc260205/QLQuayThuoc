@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnQuanLiThanhToanQRCode = new Button();
             panel4 = new Panel();
             btnDangXuat = new Button();
             btnDanhMuc = new Button();
@@ -40,7 +41,6 @@
             lblAdmin = new Label();
             panel3 = new Panel();
             panel5 = new Panel();
-            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -49,7 +49,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ScrollBar;
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnQuanLiThanhToanQRCode);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(btnDangXuat);
             panel1.Controls.Add(btnDanhMuc);
@@ -59,6 +59,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(244, 564);
             panel1.TabIndex = 1;
+            // 
+            // btnQuanLiThanhToanQRCode
+            // 
+            btnQuanLiThanhToanQRCode.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnQuanLiThanhToanQRCode.Location = new Point(3, 153);
+            btnQuanLiThanhToanQRCode.Name = "btnQuanLiThanhToanQRCode";
+            btnQuanLiThanhToanQRCode.Size = new Size(232, 29);
+            btnQuanLiThanhToanQRCode.TabIndex = 5;
+            btnQuanLiThanhToanQRCode.Text = "Quản lí thanh toán QRCode";
+            btnQuanLiThanhToanQRCode.UseVisualStyleBackColor = true;
+            btnQuanLiThanhToanQRCode.Click += btnQuanLiThanhToanQRCode_Click;
             // 
             // panel4
             // 
@@ -169,16 +180,6 @@
             panel5.Size = new Size(1373, 24);
             panel5.TabIndex = 1;
             // 
-            // button1
-            // 
-            button1.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(3, 153);
-            button1.Name = "button1";
-            button1.Size = new Size(232, 29);
-            button1.TabIndex = 5;
-            button1.Text = "Quản lí thanh toán QRCode";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // FormAdmin
             // 
             AutoScaleDimensions = new SizeF(12F, 28F);
@@ -213,6 +214,6 @@
         private Label label1;
         private Panel panel4;
         private Panel panel5;
-        private Button button1;
+        private Button btnQuanLiThanhToanQRCode;
     }
 }
