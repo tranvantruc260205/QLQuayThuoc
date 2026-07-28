@@ -22,6 +22,7 @@ namespace QLQuayThuoc.Data
         public DbSet<PhieuXinCapThuoc> PhieuXinCapThuocs { get; set; } = null!;
         public DbSet<ChiTietPhieuXinCap> ChiTietPhieuXinCaps { get; set; } = null!;
         public DbSet<ChiTietCapTheoLo> ChiTietCapTheoLos { get; set; } = null!;
+        public DbSet<CauHinhThanhToan> CauHinhThanhToans { get; set; } = null!;
 
         public AppDbContext()
         {
@@ -44,6 +45,8 @@ namespace QLQuayThuoc.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CauHinhThanhToan>().ToTable("CauHinhThanhToan",table => table.ExcludeFromMigrations());
 
             // Đặt tên bảng ở dạng số ít
             modelBuilder.Entity<User>()

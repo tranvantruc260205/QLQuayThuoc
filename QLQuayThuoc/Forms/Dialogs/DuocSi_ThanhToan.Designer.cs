@@ -67,6 +67,8 @@
             lblNoiDung = new Label();
             grbQRCode = new GroupBox();
             lblTrangThai = new Label();
+            lblChuTK = new Label();
+            label15 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             groupBox2.SuspendLayout();
@@ -332,7 +334,6 @@
             rdoQuetMa.TabIndex = 5;
             rdoQuetMa.Text = "Quét mã (QRCode)";
             rdoQuetMa.UseVisualStyleBackColor = true;
-            rdoQuetMa.CheckedChanged += rdoQuetMa_CheckedChanged;
             // 
             // rdoTienMat
             // 
@@ -345,7 +346,6 @@
             rdoTienMat.TabStop = true;
             rdoTienMat.Text = "Tiền mặt";
             rdoTienMat.UseVisualStyleBackColor = true;
-            rdoTienMat.CheckedChanged += rdoTienMat_CheckedChanged;
             // 
             // label5
             // 
@@ -400,7 +400,6 @@
             btnHuy.TabIndex = 10;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
-            btnHuy.Click += btnHuy_Click;
             // 
             // btnXacNhan
             // 
@@ -415,7 +414,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(235, 67);
+            label6.Location = new Point(202, 64);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
             label6.Size = new Size(82, 20);
@@ -425,7 +424,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(235, 26);
+            label7.Location = new Point(202, 26);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(66, 20);
@@ -435,7 +434,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(235, 108);
+            label8.Location = new Point(202, 141);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(86, 20);
@@ -455,7 +454,7 @@
             // 
             lblSoTien.AutoSize = true;
             lblSoTien.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblSoTien.Location = new Point(326, 26);
+            lblSoTien.Location = new Point(293, 26);
             lblSoTien.Name = "lblSoTien";
             lblSoTien.Size = new Size(51, 20);
             lblSoTien.TabIndex = 4;
@@ -465,7 +464,7 @@
             // 
             lblNoiDung.AutoSize = true;
             lblNoiDung.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNoiDung.Location = new Point(326, 65);
+            lblNoiDung.Location = new Point(293, 62);
             lblNoiDung.Name = "lblNoiDung";
             lblNoiDung.Size = new Size(69, 23);
             lblNoiDung.TabIndex = 5;
@@ -474,6 +473,8 @@
             // grbQRCode
             // 
             grbQRCode.BackColor = SystemColors.ControlLight;
+            grbQRCode.Controls.Add(lblChuTK);
+            grbQRCode.Controls.Add(label15);
             grbQRCode.Controls.Add(lblTrangThai);
             grbQRCode.Controls.Add(lblNoiDung);
             grbQRCode.Controls.Add(lblSoTien);
@@ -494,11 +495,32 @@
             // 
             lblTrangThai.AutoSize = true;
             lblTrangThai.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTrangThai.Location = new Point(326, 108);
+            lblTrangThai.ForeColor = Color.OrangeRed;
+            lblTrangThai.Location = new Point(293, 141);
             lblTrangThai.Name = "lblTrangThai";
             lblTrangThai.Size = new Size(60, 20);
             lblTrangThai.TabIndex = 6;
             lblTrangThai.Text = "label11";
+            // 
+            // lblChuTK
+            // 
+            lblChuTK.AutoSize = true;
+            lblChuTK.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            lblChuTK.Location = new Point(293, 99);
+            lblChuTK.Name = "lblChuTK";
+            lblChuTK.Size = new Size(69, 23);
+            lblChuTK.TabIndex = 8;
+            lblChuTK.Text = "label10";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(202, 101);
+            label15.Margin = new Padding(2, 0, 2, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(66, 20);
+            label15.TabIndex = 7;
+            label15.Text = "Chủ TK : ";
             // 
             // DuocSi_ThanhToan
             // 
@@ -567,5 +589,7 @@
         private Label lblBenhNhan;
         private Label lblMaDonThuoc;
         private Label lblMaBHYT;
+        private Label lblChuTK;
+        private Label label15;
     }
 }
