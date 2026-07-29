@@ -32,7 +32,7 @@
             Button btnDanhSachHoaDon;
             Button btnBaoCaoDoanhThu;
             panelHeader = new Panel();
-            label2 = new Label();
+            lbKeToan = new Label();
             label1 = new Label();
             panelMenu = new Panel();
             label3 = new Label();
@@ -46,20 +46,21 @@
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = SystemColors.Control;
-            btnLogout.Location = new Point(20, 662);
+            btnLogout.BackColor = SystemColors.ButtonFace;
+            btnLogout.Location = new Point(7, 671);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(226, 42);
+            btnLogout.Size = new Size(140, 33);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Đăng xuất";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDanhSachHoaDon
             // 
-            btnDanhSachHoaDon.BackColor = SystemColors.Control;
-            btnDanhSachHoaDon.Location = new Point(20, 53);
+            btnDanhSachHoaDon.BackColor = SystemColors.ButtonFace;
+            btnDanhSachHoaDon.Location = new Point(3, 48);
             btnDanhSachHoaDon.Name = "btnDanhSachHoaDon";
-            btnDanhSachHoaDon.Size = new Size(226, 42);
+            btnDanhSachHoaDon.Size = new Size(153, 36);
             btnDanhSachHoaDon.TabIndex = 1;
             btnDanhSachHoaDon.Text = "Danh Sách Hóa Đơn";
             btnDanhSachHoaDon.UseVisualStyleBackColor = false;
@@ -67,10 +68,10 @@
             // 
             // btnBaoCaoDoanhThu
             // 
-            btnBaoCaoDoanhThu.BackColor = SystemColors.Control;
-            btnBaoCaoDoanhThu.Location = new Point(20, 122);
+            btnBaoCaoDoanhThu.BackColor = SystemColors.ButtonFace;
+            btnBaoCaoDoanhThu.Location = new Point(3, 107);
             btnBaoCaoDoanhThu.Name = "btnBaoCaoDoanhThu";
-            btnBaoCaoDoanhThu.Size = new Size(226, 42);
+            btnBaoCaoDoanhThu.Size = new Size(153, 35);
             btnBaoCaoDoanhThu.TabIndex = 2;
             btnBaoCaoDoanhThu.Text = "Báo Cáo Doanh Thu";
             btnBaoCaoDoanhThu.UseVisualStyleBackColor = false;
@@ -78,22 +79,22 @@
             // 
             // panelHeader
             // 
-            panelHeader.BackColor = Color.Silver;
-            panelHeader.Controls.Add(label2);
+            panelHeader.BackColor = SystemColors.Control;
+            panelHeader.Controls.Add(lbKeToan);
             panelHeader.Controls.Add(label1);
             panelHeader.Location = new Point(1, 0);
             panelHeader.Name = "panelHeader";
             panelHeader.Size = new Size(1303, 72);
             panelHeader.TabIndex = 0;
             // 
-            // label2
+            // lbKeToan
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(1112, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(178, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Phạm Thu Trang | Kế toán";
+            lbKeToan.AutoSize = true;
+            lbKeToan.Location = new Point(1062, 28);
+            lbKeToan.Name = "lbKeToan";
+            lbKeToan.Size = new Size(178, 20);
+            lbKeToan.TabIndex = 1;
+            lbKeToan.Text = "Phạm Thu Trang | Kế toán";
             // 
             // label1
             // 
@@ -107,14 +108,14 @@
             // 
             // panelMenu
             // 
-            panelMenu.BackColor = Color.LightGray;
+            panelMenu.BackColor = SystemColors.Control;
             panelMenu.Controls.Add(label3);
             panelMenu.Controls.Add(btnBaoCaoDoanhThu);
             panelMenu.Controls.Add(btnDanhSachHoaDon);
             panelMenu.Controls.Add(btnLogout);
             panelMenu.Location = new Point(1, 72);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(266, 715);
+            panelMenu.Size = new Size(169, 715);
             panelMenu.TabIndex = 1;
             // 
             // label3
@@ -129,9 +130,10 @@
             // 
             // panelContent
             // 
-            panelContent.Location = new Point(267, 72);
+            panelContent.BackColor = SystemColors.ControlLightLight;
+            panelContent.Location = new Point(163, 72);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1037, 715);
+            panelContent.Size = new Size(1141, 715);
             panelContent.TabIndex = 2;
             // 
             // FormKeToan
@@ -144,6 +146,7 @@
             Controls.Add(panelHeader);
             Name = "FormKeToan";
             Text = "Quản lý quầy thuốc bệnh viện";
+            Load += FormKeToan_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             panelMenu.ResumeLayout(false);
@@ -157,7 +160,7 @@
         private Panel panelMenu;
         private Panel panelContent;
         private Label label1;
-        private Label label2;
+        private Label lbKeToan;
         private Label label3;
     }
 }
