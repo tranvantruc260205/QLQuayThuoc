@@ -30,17 +30,17 @@
         {
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtTimKiem = new TextBox();
             label3 = new Label();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
-            button1 = new Button();
+            cbRole = new ComboBox();
+            cbTrangThai = new ComboBox();
+            btnTim = new Button();
             btnLamMoi = new Button();
             btnAddUser = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            btnSua = new Button();
+            btnKhoaMo = new Button();
+            btnRsPassword = new Button();
             dgv = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -48,7 +48,7 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            button2 = new Button();
+            btnXoa = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             SuspendLayout();
             // 
@@ -57,84 +57,78 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(378, 38);
+            label1.Size = new Size(306, 31);
             label1.TabIndex = 0;
             label1.Text = "Người dùng và phân quyền";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(4, 86);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(3, 69);
             label2.Name = "label2";
-            label2.Size = new Size(84, 25);
+            label2.Size = new Size(70, 20);
             label2.TabIndex = 1;
             label2.Text = "Tìm kiếm";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            textBox1.Location = new Point(4, 118);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(260, 31);
-            textBox1.TabIndex = 2;
+            txtTimKiem.Location = new Point(3, 94);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(209, 27);
+            txtTimKiem.TabIndex = 2;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(284, 86);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(227, 69);
             label3.Name = "label3";
-            label3.Size = new Size(63, 25);
+            label3.Size = new Size(52, 20);
             label3.TabIndex = 3;
             label3.Text = "Vai trò";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(491, 86);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(393, 69);
             label4.Name = "label4";
-            label4.Size = new Size(89, 25);
+            label4.Size = new Size(75, 20);
             label4.TabIndex = 4;
             label4.Text = "Trạng thái";
             // 
-            // comboBox1
+            // cbRole
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(284, 116);
-            comboBox1.Margin = new Padding(4, 4, 4, 4);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(188, 33);
-            comboBox1.TabIndex = 5;
+            cbRole.FormattingEnabled = true;
+            cbRole.Items.AddRange(new object[] { "Tất cả", "Bác sĩ", "Dược sĩ", "Kế toán", "Kho tổng", "Admin" });
+            cbRole.Location = new Point(227, 93);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(151, 28);
+            cbRole.TabIndex = 5;
             // 
-            // comboBox2
+            // cbTrangThai
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(491, 116);
-            comboBox2.Margin = new Padding(4, 4, 4, 4);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(188, 33);
-            comboBox2.TabIndex = 6;
+            cbTrangThai.FormattingEnabled = true;
+            cbTrangThai.Items.AddRange(new object[] { "Tất cả", "Hoạt động", "Khóa" });
+            cbTrangThai.Location = new Point(393, 93);
+            cbTrangThai.Name = "cbTrangThai";
+            cbTrangThai.Size = new Size(151, 28);
+            cbTrangThai.TabIndex = 6;
             // 
-            // button1
+            // btnTim
             // 
-            button1.Location = new Point(700, 115);
-            button1.Margin = new Padding(4, 4, 4, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 36);
-            button1.TabIndex = 7;
-            button1.Text = "Tìm";
-            button1.UseVisualStyleBackColor = true;
+            btnTim.Location = new Point(560, 92);
+            btnTim.Name = "btnTim";
+            btnTim.Size = new Size(75, 29);
+            btnTim.TabIndex = 7;
+            btnTim.Text = "Tìm";
+            btnTim.UseVisualStyleBackColor = true;
+            btnTim.Click += btnTim_Click;
             // 
             // btnLamMoi
             // 
-            btnLamMoi.Location = new Point(819, 115);
-            btnLamMoi.Margin = new Padding(4, 4, 4, 4);
+            btnLamMoi.Location = new Point(655, 92);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(112, 36);
+            btnLamMoi.Size = new Size(90, 29);
             btnLamMoi.TabIndex = 8;
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
@@ -142,56 +136,54 @@
             // 
             // btnAddUser
             // 
-            btnAddUser.Location = new Point(1040, 115);
-            btnAddUser.Margin = new Padding(4, 4, 4, 4);
+            btnAddUser.Location = new Point(832, 92);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(186, 36);
+            btnAddUser.Size = new Size(149, 29);
             btnAddUser.TabIndex = 9;
             btnAddUser.Text = "Thêm người dùng";
             btnAddUser.UseVisualStyleBackColor = true;
             btnAddUser.Click += btnAddUser_Click;
             // 
-            // button4
+            // btnSua
             // 
-            button4.Location = new Point(686, 555);
-            button4.Margin = new Padding(4, 4, 4, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(80, 36);
-            button4.TabIndex = 11;
-            button4.Text = "Sửa";
-            button4.UseVisualStyleBackColor = true;
+            btnSua.Location = new Point(561, 444);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(64, 29);
+            btnSua.TabIndex = 11;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
-            // button5
+            // btnKhoaMo
             // 
-            button5.Location = new Point(895, 555);
-            button5.Margin = new Padding(4, 4, 4, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(138, 36);
-            button5.TabIndex = 12;
-            button5.Text = "Khóa/Mở";
-            button5.UseVisualStyleBackColor = true;
+            btnKhoaMo.Location = new Point(709, 445);
+            btnKhoaMo.Name = "btnKhoaMo";
+            btnKhoaMo.Size = new Size(110, 29);
+            btnKhoaMo.TabIndex = 12;
+            btnKhoaMo.Text = "Khóa/Mở";
+            btnKhoaMo.UseVisualStyleBackColor = true;
+            btnKhoaMo.Click += btnKhoaMo_Click;
             // 
-            // button6
+            // btnRsPassword
             // 
-            button6.Location = new Point(1040, 555);
-            button6.Margin = new Padding(4, 4, 4, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(186, 36);
-            button6.TabIndex = 13;
-            button6.Text = "Đặt lại mật khẩu...";
-            button6.UseVisualStyleBackColor = true;
+            btnRsPassword.Location = new Point(825, 445);
+            btnRsPassword.Name = "btnRsPassword";
+            btnRsPassword.Size = new Size(149, 29);
+            btnRsPassword.TabIndex = 13;
+            btnRsPassword.Text = "Đặt lại mật khẩu...";
+            btnRsPassword.UseVisualStyleBackColor = true;
+            btnRsPassword.Click += btnRsPassword_Click;
             // 
             // dgv
             // 
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dgv.Location = new Point(4, 176);
-            dgv.Margin = new Padding(4, 4, 4, 4);
+            dgv.Location = new Point(3, 141);
             dgv.Name = "dgv";
             dgv.RowHeadersVisible = false;
             dgv.RowHeadersWidth = 51;
             dgv.RowTemplate.Height = 29;
-            dgv.Size = new Size(1235, 359);
+            dgv.Size = new Size(988, 287);
             dgv.TabIndex = 14;
             // 
             // Column1
@@ -242,37 +234,38 @@
             Column6.Name = "Column6";
             Column6.Width = 240;
             // 
-            // button2
+            // btnXoa
             // 
-            button2.Location = new Point(787, 556);
-            button2.Name = "button2";
-            button2.Size = new Size(92, 34);
-            button2.TabIndex = 15;
-            button2.Text = "Xóa";
-            button2.UseVisualStyleBackColor = true;
+            btnXoa.Location = new Point(630, 445);
+            btnXoa.Margin = new Padding(2);
+            btnXoa.Name = "btnXoa";
+            btnXoa.Size = new Size(74, 27);
+            btnXoa.TabIndex = 15;
+            btnXoa.Text = "Xóa";
+            btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // UCNguoiDungPhanQuyen
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button2);
+            Controls.Add(btnXoa);
             Controls.Add(dgv);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
+            Controls.Add(btnRsPassword);
+            Controls.Add(btnKhoaMo);
+            Controls.Add(btnSua);
             Controls.Add(btnAddUser);
             Controls.Add(btnLamMoi);
-            Controls.Add(button1);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(btnTim);
+            Controls.Add(cbTrangThai);
+            Controls.Add(cbRole);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(txtTimKiem);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(4, 4, 4, 4);
             Name = "UCNguoiDungPhanQuyen";
-            Size = new Size(1258, 698);
+            Size = new Size(1006, 558);
             Load += UCNguoiDungPhanQuyen_Load;
             ((System.ComponentModel.ISupportInitialize)dgv).EndInit();
             ResumeLayout(false);
@@ -283,17 +276,17 @@
 
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtTimKiem;
         private Label label3;
         private Label label4;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private Button button1;
+        private ComboBox cbRole;
+        private ComboBox cbTrangThai;
+        private Button btnTim;
         private Button btnLamMoi;
         private Button btnAddUser;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button btnSua;
+        private Button btnKhoaMo;
+        private Button btnRsPassword;
         private DataGridView dgv;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
@@ -301,6 +294,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
-        private Button button2;
+        private Button btnXoa;
     }
 }

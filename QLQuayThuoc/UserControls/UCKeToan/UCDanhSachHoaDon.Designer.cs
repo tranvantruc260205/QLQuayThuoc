@@ -30,30 +30,32 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
-            button2 = new Button();
-            button1 = new Button();
-            comboBox1 = new ComboBox();
+            btnLamMoi = new Button();
+            btnLoc = new Button();
+            cboPhuongThuc = new ComboBox();
             label5 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
+            dtpDenNgay = new DateTimePicker();
+            dtpTuNgay = new DateTimePicker();
             label4 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtTimKiem = new TextBox();
             label2 = new Label();
-            dataGridView1 = new DataGridView();
-            button3 = new Button();
-            button4 = new Button();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
-            Column9 = new DataGridViewTextBoxColumn();
+            dgvHoaDon = new DataGridView();
+            btnXemChiTiet = new Button();
+            btnInHoaDon = new Button();
+            colMaHD = new DataGridViewTextBoxColumn();
+            colMaDonThuoc = new DataGridViewTextBoxColumn();
+            colBenhNhan = new DataGridViewTextBoxColumn();
+            colDuocSi = new DataGridViewTextBoxColumn();
+            colNgayThanhToan = new DataGridViewTextBoxColumn();
+            colTienThuoc = new DataGridViewTextBoxColumn();
+            colBHYT = new DataGridViewTextBoxColumn();
+            colBHYTChiTra = new DataGridViewTextBoxColumn();
+            colBenhNhanTra = new DataGridViewTextBoxColumn();
+            colPhuongThuc = new DataGridViewTextBoxColumn();
+            colMaGiaoDich = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -68,48 +70,50 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(btnLamMoi);
+            groupBox1.Controls.Add(btnLoc);
+            groupBox1.Controls.Add(cboPhuongThuc);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dtpDenNgay);
+            groupBox1.Controls.Add(dtpTuNgay);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtTimKiem);
             groupBox1.Controls.Add(label2);
-            groupBox1.Location = new Point(13, 44);
+            groupBox1.Location = new Point(3, 44);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1006, 114);
+            groupBox1.Size = new Size(1068, 114);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Tìm kiếm và lọc";
             // 
-            // button2
+            // btnLamMoi
             // 
-            button2.Location = new Point(906, 51);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 9;
-            button2.Text = "Làm mới";
-            button2.UseVisualStyleBackColor = true;
+            btnLamMoi.Location = new Point(964, 51);
+            btnLamMoi.Name = "btnLamMoi";
+            btnLamMoi.Size = new Size(94, 29);
+            btnLamMoi.TabIndex = 9;
+            btnLamMoi.Text = "Làm mới";
+            btnLamMoi.UseVisualStyleBackColor = true;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
-            // button1
+            // btnLoc
             // 
-            button1.Location = new Point(839, 50);
-            button1.Name = "button1";
-            button1.Size = new Size(61, 29);
-            button1.TabIndex = 8;
-            button1.Text = "Lọc";
-            button1.UseVisualStyleBackColor = true;
+            btnLoc.Location = new Point(881, 51);
+            btnLoc.Name = "btnLoc";
+            btnLoc.Size = new Size(61, 29);
+            btnLoc.TabIndex = 8;
+            btnLoc.Text = "Lọc";
+            btnLoc.UseVisualStyleBackColor = true;
+            btnLoc.Click += btnLoc_Click;
             // 
-            // comboBox1
+            // cboPhuongThuc
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(653, 50);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(168, 28);
-            comboBox1.TabIndex = 7;
+            cboPhuongThuc.FormattingEnabled = true;
+            cboPhuongThuc.Location = new Point(653, 50);
+            cboPhuongThuc.Name = "cboPhuongThuc";
+            cboPhuongThuc.Size = new Size(168, 28);
+            cboPhuongThuc.TabIndex = 7;
             // 
             // label5
             // 
@@ -120,19 +124,19 @@
             label5.TabIndex = 6;
             label5.Text = "Phương thức";
             // 
-            // dateTimePicker2
+            // dtpDenNgay
             // 
-            dateTimePicker2.Location = new Point(444, 50);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(188, 27);
-            dateTimePicker2.TabIndex = 5;
+            dtpDenNgay.Location = new Point(444, 50);
+            dtpDenNgay.Name = "dtpDenNgay";
+            dtpDenNgay.Size = new Size(188, 27);
+            dtpDenNgay.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // dtpTuNgay
             // 
-            dateTimePicker1.Location = new Point(232, 50);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(188, 27);
-            dateTimePicker1.TabIndex = 4;
+            dtpTuNgay.Location = new Point(232, 50);
+            dtpTuNgay.Name = "dtpTuNgay";
+            dtpTuNgay.Size = new Size(188, 27);
+            dtpTuNgay.TabIndex = 4;
             // 
             // label4
             // 
@@ -152,12 +156,13 @@
             label3.TabIndex = 2;
             label3.Text = "Từ ngày";
             // 
-            // textBox1
+            // txtTimKiem
             // 
-            textBox1.Location = new Point(6, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(198, 27);
-            textBox1.TabIndex = 1;
+            txtTimKiem.Location = new Point(6, 50);
+            txtTimKiem.Name = "txtTimKiem";
+            txtTimKiem.Size = new Size(198, 27);
+            txtTimKiem.TabIndex = 1;
+            txtTimKiem.KeyDown += txtTimKiem_KeyDown;
             // 
             // label2
             // 
@@ -168,113 +173,131 @@
             label2.TabIndex = 0;
             label2.Text = "Tìm kiếm";
             // 
-            // dataGridView1
+            // dgvHoaDon
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9 });
-            dataGridView1.Location = new Point(13, 164);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(1006, 471);
-            dataGridView1.TabIndex = 2;
+            dgvHoaDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvHoaDon.Columns.AddRange(new DataGridViewColumn[] { colMaHD, colMaDonThuoc, colBenhNhan, colDuocSi, colNgayThanhToan, colTienThuoc, colBHYT, colBHYTChiTra, colBenhNhanTra, colPhuongThuc, colMaGiaoDich });
+            dgvHoaDon.Location = new Point(3, 164);
+            dgvHoaDon.Name = "dgvHoaDon";
+            dgvHoaDon.RowHeadersVisible = false;
+            dgvHoaDon.RowHeadersWidth = 51;
+            dgvHoaDon.RowTemplate.Height = 29;
+            dgvHoaDon.Size = new Size(1068, 471);
+            dgvHoaDon.TabIndex = 2;
+            dgvHoaDon.CellDoubleClick += dgvHoaDon_CellDoubleClick;
             // 
-            // button3
+            // btnXemChiTiet
             // 
-            button3.Location = new Point(745, 662);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 29);
-            button3.TabIndex = 10;
-            button3.Text = "Xem chi tiết";
-            button3.UseVisualStyleBackColor = true;
+            btnXemChiTiet.Location = new Point(806, 662);
+            btnXemChiTiet.Name = "btnXemChiTiet";
+            btnXemChiTiet.Size = new Size(112, 29);
+            btnXemChiTiet.TabIndex = 10;
+            btnXemChiTiet.Text = "Xem chi tiết";
+            btnXemChiTiet.UseVisualStyleBackColor = true;
+            btnXemChiTiet.Click += btnXemChiTiet_Click;
             // 
-            // button4
+            // btnInHoaDon
             // 
-            button4.Location = new Point(894, 662);
-            button4.Name = "button4";
-            button4.Size = new Size(119, 29);
-            button4.TabIndex = 11;
-            button4.Text = "In lại hóa đơn";
-            button4.UseVisualStyleBackColor = true;
+            btnInHoaDon.Location = new Point(952, 662);
+            btnInHoaDon.Name = "btnInHoaDon";
+            btnInHoaDon.Size = new Size(119, 29);
+            btnInHoaDon.TabIndex = 11;
+            btnInHoaDon.Text = "In lại hóa đơn";
+            btnInHoaDon.UseVisualStyleBackColor = true;
+            btnInHoaDon.Click += btnInHoaDon_Click;
             // 
-            // Column1
+            // colMaHD
             // 
-            Column1.HeaderText = "Mã hóa đơn";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.Width = 125;
+            colMaHD.HeaderText = "Mã HD";
+            colMaHD.MinimumWidth = 6;
+            colMaHD.Name = "colMaHD";
+            colMaHD.Width = 50;
             // 
-            // Column2
+            // colMaDonThuoc
             // 
-            Column2.HeaderText = "Mã đơn";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.Width = 125;
+            colMaDonThuoc.HeaderText = "Mã phiếu xuất";
+            colMaDonThuoc.MinimumWidth = 6;
+            colMaDonThuoc.Name = "colMaDonThuoc";
+            colMaDonThuoc.Width = 50;
             // 
-            // Column3
+            // colBenhNhan
             // 
-            Column3.HeaderText = "Bệnh nhân";
-            Column3.MinimumWidth = 6;
-            Column3.Name = "Column3";
-            Column3.Width = 125;
+            colBenhNhan.HeaderText = "Bệnh nhân";
+            colBenhNhan.MinimumWidth = 6;
+            colBenhNhan.Name = "colBenhNhan";
+            colBenhNhan.Width = 125;
             // 
-            // Column4
+            // colDuocSi
             // 
-            Column4.HeaderText = "Dược sĩ";
-            Column4.MinimumWidth = 6;
-            Column4.Name = "Column4";
-            Column4.Width = 125;
+            colDuocSi.HeaderText = "Dược sĩ";
+            colDuocSi.MinimumWidth = 6;
+            colDuocSi.Name = "colDuocSi";
+            colDuocSi.Width = 125;
             // 
-            // Column5
+            // colNgayThanhToan
             // 
-            Column5.HeaderText = "Ngày thanh toán";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.Width = 125;
+            colNgayThanhToan.HeaderText = "Ngày thanh toán";
+            colNgayThanhToan.MinimumWidth = 6;
+            colNgayThanhToan.Name = "colNgayThanhToan";
+            colNgayThanhToan.Width = 125;
             // 
-            // Column6
+            // colTienThuoc
             // 
-            Column6.HeaderText = "Tiền thuốc";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.Width = 125;
+            colTienThuoc.HeaderText = "Tiền thuốc";
+            colTienThuoc.MinimumWidth = 6;
+            colTienThuoc.Name = "colTienThuoc";
+            colTienThuoc.Width = 105;
             // 
-            // Column7
+            // colBHYT
             // 
-            Column7.HeaderText = "BHYT chi trả";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            Column7.Width = 125;
+            colBHYT.HeaderText = "BHYT";
+            colBHYT.MinimumWidth = 6;
+            colBHYT.Name = "colBHYT";
+            colBHYT.Width = 50;
             // 
-            // Column8
+            // colBHYTChiTra
             // 
-            Column8.HeaderText = "Bệnh nhân trả";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
-            Column8.Width = 125;
+            colBHYTChiTra.HeaderText = "BHYT chi trả";
+            colBHYTChiTra.MinimumWidth = 6;
+            colBHYTChiTra.Name = "colBHYTChiTra";
+            colBHYTChiTra.Width = 105;
             // 
-            // Column9
+            // colBenhNhanTra
             // 
-            Column9.HeaderText = "Phương thức";
-            Column9.MinimumWidth = 6;
-            Column9.Name = "Column9";
-            Column9.Width = 125;
+            colBenhNhanTra.HeaderText = "Bệnh nhân trả";
+            colBenhNhanTra.MinimumWidth = 6;
+            colBenhNhanTra.Name = "colBenhNhanTra";
+            colBenhNhanTra.Width = 110;
+            // 
+            // colPhuongThuc
+            // 
+            colPhuongThuc.HeaderText = "Phương thức";
+            colPhuongThuc.MinimumWidth = 6;
+            colPhuongThuc.Name = "colPhuongThuc";
+            colPhuongThuc.Width = 110;
+            // 
+            // colMaGiaoDich
+            // 
+            colMaGiaoDich.HeaderText = "Mã giao dịch";
+            colMaGiaoDich.MinimumWidth = 6;
+            colMaGiaoDich.Name = "colMaGiaoDich";
+            colMaGiaoDich.Width = 110;
             // 
             // UCDanhSachHoaDon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnInHoaDon);
+            Controls.Add(btnXemChiTiet);
+            Controls.Add(dgvHoaDon);
             Controls.Add(groupBox1);
             Controls.Add(label1);
             Name = "UCDanhSachHoaDon";
-            Size = new Size(1037, 715);
+            Size = new Size(1341, 715);
+            Load += UCDanhSachHoaDon_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvHoaDon).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,27 +306,29 @@
 
         private Label label1;
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txtTimKiem;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox cboPhuongThuc;
         private Label label5;
-        private DateTimePicker dateTimePicker2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpDenNgay;
+        private DateTimePicker dtpTuNgay;
         private Label label4;
         private Label label3;
-        private Button button2;
-        private Button button1;
-        private DataGridView dataGridView1;
-        private Button button3;
-        private Button button4;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column9;
+        private Button btnLamMoi;
+        private Button btnLoc;
+        private DataGridView dgvHoaDon;
+        private Button btnXemChiTiet;
+        private Button btnInHoaDon;
+        private DataGridViewTextBoxColumn colMaHD;
+        private DataGridViewTextBoxColumn colMaDonThuoc;
+        private DataGridViewTextBoxColumn colBenhNhan;
+        private DataGridViewTextBoxColumn colDuocSi;
+        private DataGridViewTextBoxColumn colNgayThanhToan;
+        private DataGridViewTextBoxColumn colTienThuoc;
+        private DataGridViewTextBoxColumn colBHYT;
+        private DataGridViewTextBoxColumn colBHYTChiTra;
+        private DataGridViewTextBoxColumn colBenhNhanTra;
+        private DataGridViewTextBoxColumn colPhuongThuc;
+        private DataGridViewTextBoxColumn colMaGiaoDich;
     }
 }

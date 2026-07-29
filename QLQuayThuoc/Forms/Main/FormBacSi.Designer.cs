@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panelHeader = new Panel();
-            label2 = new Label();
+            lblBacSi = new Label();
             label1 = new Label();
             panelMenu = new Panel();
-            button3 = new Button();
+            btnDangXuat = new Button();
             btn_KeDonMoi = new Button();
             btn_DonThuoc = new Button();
             label3 = new Label();
@@ -44,22 +44,22 @@
             // panelHeader
             // 
             panelHeader.BackColor = SystemColors.ControlLight;
-            panelHeader.Controls.Add(label2);
+            panelHeader.Controls.Add(lblBacSi);
             panelHeader.Controls.Add(label1);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1177, 50);
+            panelHeader.Size = new Size(1226, 50);
             panelHeader.TabIndex = 0;
             // 
-            // label2
+            // lblBacSi
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(979, 18);
-            label2.Name = "label2";
-            label2.Size = new Size(186, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Bác Sĩ | Phạm Thành Nghĩa";
+            lblBacSi.AutoSize = true;
+            lblBacSi.Location = new Point(1004, 18);
+            lblBacSi.Name = "lblBacSi";
+            lblBacSi.Size = new Size(186, 20);
+            lblBacSi.TabIndex = 1;
+            lblBacSi.Text = "Bác Sĩ | Phạm Thành Nghĩa";
             // 
             // label1
             // 
@@ -75,26 +75,27 @@
             // panelMenu
             // 
             panelMenu.BackColor = SystemColors.ControlLight;
-            panelMenu.Controls.Add(button3);
+            panelMenu.Controls.Add(btnDangXuat);
             panelMenu.Controls.Add(btn_KeDonMoi);
             panelMenu.Controls.Add(btn_DonThuoc);
             panelMenu.Controls.Add(label3);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 50);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(130, 400);
+            panelMenu.Size = new Size(130, 495);
             panelMenu.TabIndex = 1;
             // 
-            // button3
+            // btnDangXuat
             // 
-            button3.AccessibleRole = AccessibleRole.Clock;
-            button3.BackColor = SystemColors.ButtonFace;
-            button3.Location = new Point(12, 359);
-            button3.Name = "button3";
-            button3.Size = new Size(104, 29);
-            button3.TabIndex = 3;
-            button3.Text = "Đăng Xuất";
-            button3.UseVisualStyleBackColor = false;
+            btnDangXuat.AccessibleRole = AccessibleRole.Clock;
+            btnDangXuat.BackColor = SystemColors.ButtonFace;
+            btnDangXuat.Location = new Point(12, 454);
+            btnDangXuat.Name = "btnDangXuat";
+            btnDangXuat.Size = new Size(104, 29);
+            btnDangXuat.TabIndex = 3;
+            btnDangXuat.Text = "Đăng Xuất";
+            btnDangXuat.UseVisualStyleBackColor = false;
+            btnDangXuat.Click += btnDangXuat_Click;
             // 
             // btn_KeDonMoi
             // 
@@ -109,7 +110,7 @@
             // 
             // btn_DonThuoc
             // 
-            btn_DonThuoc.BackColor = Color.PaleTurquoise;
+            btn_DonThuoc.BackColor = SystemColors.Control;
             btn_DonThuoc.FlatAppearance.BorderColor = SystemColors.Desktop;
             btn_DonThuoc.FlatStyle = FlatStyle.Flat;
             btn_DonThuoc.Location = new Point(12, 50);
@@ -136,19 +137,18 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(130, 50);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1047, 400);
+            panelContent.Size = new Size(1096, 495);
             panelContent.TabIndex = 2;
-            panelContent.Paint += panelContent_Paint;
             // 
-            // DanhSachDonThuoc
+            // FormBacSi
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1177, 450);
+            ClientSize = new Size(1226, 545);
             Controls.Add(panelContent);
             Controls.Add(panelMenu);
             Controls.Add(panelHeader);
-            Name = "DanhSachDonThuoc";
+            Name = "FormBacSi";
             Text = "Quản Lý Quầy Thuốc Bệnh Viện";
             Load += DanhSachDonThuoc_Load;
             panelHeader.ResumeLayout(false);
@@ -161,13 +161,13 @@
         #endregion
 
         private Panel panelHeader;
-        private Label label2;
+        private Label lblBacSi;
         private Label label1;
         private Panel panelMenu;
         private Button btn_KeDonMoi;
         private Button btn_DonThuoc;
         private Label label3;
-        private Button button3;
+        private Button btnDangXuat;
         private Panel panelContent;
     }
 }
