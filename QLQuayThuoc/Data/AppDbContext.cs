@@ -5,8 +5,7 @@ namespace QLQuayThuoc.Data
 {
     public class AppDbContext : DbContext
     {
-        private const string ConnectionString =
-            "server=localhost;port=3307;database=QLQuayThuoc;user=root;password=240405;";     //Tự thay mật khẩu mysql server vào
+        private const string ConnectionString = "";     //Tự thay mật khẩu mysql server vào
 
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<BenhNhan> BenhNhans { get; set; } = null!;
