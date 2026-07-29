@@ -31,7 +31,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="UserControls\UCBacSi\" />
-    <Folder Include="UserControls\UCKhoTong\" />
   </ItemGroup>
 
   <ItemGroup>
