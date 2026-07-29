@@ -69,9 +69,8 @@
             panelContent.Controls.Add(label4);
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(0, 0);
-            panelContent.Margin = new Padding(4);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1860, 754);
+            panelContent.Size = new Size(1240, 503);
             panelContent.TabIndex = 6;
             // 
             // grpChiTietDuyet
@@ -82,21 +81,18 @@
             grpChiTietDuyet.Controls.Add(btnTuChoi);
             grpChiTietDuyet.Controls.Add(dgvChiTiet);
             grpChiTietDuyet.Controls.Add(txtGhiChuDuyet);
-            grpChiTietDuyet.Location = new Point(798, 75);
-            grpChiTietDuyet.Margin = new Padding(4);
+            grpChiTietDuyet.Location = new Point(532, 50);
             grpChiTietDuyet.Name = "grpChiTietDuyet";
-            grpChiTietDuyet.Padding = new Padding(4);
-            grpChiTietDuyet.Size = new Size(776, 462);
+            grpChiTietDuyet.Size = new Size(517, 308);
             grpChiTietDuyet.TabIndex = 5;
             grpChiTietDuyet.TabStop = false;
             grpChiTietDuyet.Text = "Chi tiết và số lượng duyệt";
             // 
             // btnDuyetXuat
             // 
-            btnDuyetXuat.Location = new Point(590, 405);
-            btnDuyetXuat.Margin = new Padding(4);
+            btnDuyetXuat.Location = new Point(372, 270);
             btnDuyetXuat.Name = "btnDuyetXuat";
-            btnDuyetXuat.Size = new Size(154, 44);
+            btnDuyetXuat.Size = new Size(133, 29);
             btnDuyetXuat.TabIndex = 4;
             btnDuyetXuat.Text = "Duyệt && Xuất";
             btnDuyetXuat.UseVisualStyleBackColor = true;
@@ -104,10 +100,9 @@
             // 
             // btnInPhieu
             // 
-            btnInPhieu.Location = new Point(416, 405);
-            btnInPhieu.Margin = new Padding(4);
+            btnInPhieu.Location = new Point(260, 269);
             btnInPhieu.Name = "btnInPhieu";
-            btnInPhieu.Size = new Size(141, 44);
+            btnInPhieu.Size = new Size(94, 29);
             btnInPhieu.TabIndex = 3;
             btnInPhieu.Text = "In phiếu";
             btnInPhieu.UseVisualStyleBackColor = true;
@@ -115,10 +110,9 @@
             // 
             // btnTuChoi
             // 
-            btnTuChoi.Location = new Point(238, 405);
-            btnTuChoi.Margin = new Padding(4);
+            btnTuChoi.Location = new Point(144, 270);
             btnTuChoi.Name = "btnTuChoi";
-            btnTuChoi.Size = new Size(141, 44);
+            btnTuChoi.Size = new Size(94, 29);
             btnTuChoi.TabIndex = 2;
             btnTuChoi.Text = "Từ chối";
             btnTuChoi.UseVisualStyleBackColor = true;
@@ -129,13 +123,12 @@
             dgvChiTiet.BackgroundColor = SystemColors.Control;
             dgvChiTiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTiet.Columns.AddRange(new DataGridViewColumn[] { colMaThuoc, colTenThuoc, colSoLuongYeuCau, colTonKho, colSoLuongDuyet });
-            dgvChiTiet.Location = new Point(9, 91);
-            dgvChiTiet.Margin = new Padding(4);
+            dgvChiTiet.Location = new Point(6, 61);
             dgvChiTiet.Name = "dgvChiTiet";
             dgvChiTiet.RowHeadersVisible = false;
             dgvChiTiet.RowHeadersWidth = 51;
             dgvChiTiet.RowTemplate.Height = 29;
-            dgvChiTiet.Size = new Size(758, 282);
+            dgvChiTiet.Size = new Size(505, 188);
             dgvChiTiet.TabIndex = 1;
             // 
             // colMaThuoc
@@ -184,11 +177,10 @@
             // 
             // txtGhiChuDuyet
             // 
-            txtGhiChuDuyet.Location = new Point(9, 36);
-            txtGhiChuDuyet.Margin = new Padding(4);
+            txtGhiChuDuyet.Location = new Point(6, 24);
             txtGhiChuDuyet.Multiline = true;
             txtGhiChuDuyet.Name = "txtGhiChuDuyet";
-            txtGhiChuDuyet.Size = new Size(746, 47);
+            txtGhiChuDuyet.Size = new Size(499, 33);
             txtGhiChuDuyet.TabIndex = 0;
             // 
             // grpPhieuChoXuLy
@@ -200,11 +192,9 @@
             grpPhieuChoXuLy.Controls.Add(btnLoc);
             grpPhieuChoXuLy.Controls.Add(label7);
             grpPhieuChoXuLy.Controls.Add(label6);
-            grpPhieuChoXuLy.Location = new Point(9, 74);
-            grpPhieuChoXuLy.Margin = new Padding(4);
+            grpPhieuChoXuLy.Location = new Point(6, 49);
             grpPhieuChoXuLy.Name = "grpPhieuChoXuLy";
-            grpPhieuChoXuLy.Padding = new Padding(4);
-            grpPhieuChoXuLy.Size = new Size(784, 462);
+            grpPhieuChoXuLy.Size = new Size(523, 308);
             grpPhieuChoXuLy.TabIndex = 4;
             grpPhieuChoXuLy.TabStop = false;
             grpPhieuChoXuLy.Text = "Phiếu chờ xử lý";
@@ -212,18 +202,18 @@
             // dtpTuNgay
             // 
             dtpTuNgay.Format = DateTimePickerFormat.Short;
-            dtpTuNgay.Location = new Point(266, 78);
+            dtpTuNgay.Location = new Point(177, 52);
+            dtpTuNgay.Margin = new Padding(2, 2, 2, 2);
             dtpTuNgay.Name = "dtpTuNgay";
-            dtpTuNgay.Size = new Size(240, 35);
+            dtpTuNgay.Size = new Size(161, 27);
             dtpTuNgay.TabIndex = 6;
             // 
             // cboTrangThai
             // 
             cboTrangThai.FormattingEnabled = true;
-            cboTrangThai.Location = new Point(9, 76);
-            cboTrangThai.Margin = new Padding(4);
+            cboTrangThai.Location = new Point(6, 51);
             cboTrangThai.Name = "cboTrangThai";
-            cboTrangThai.Size = new Size(224, 38);
+            cboTrangThai.Size = new Size(151, 28);
             cboTrangThai.TabIndex = 5;
             // 
             // dgvPhieu
@@ -232,8 +222,7 @@
             dgvPhieu.BackgroundColor = SystemColors.Control;
             dgvPhieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhieu.Columns.AddRange(new DataGridViewColumn[] { colMaPhieu, colNguoiLap, colNgayLap, colLyDo });
-            dgvPhieu.Location = new Point(9, 128);
-            dgvPhieu.Margin = new Padding(4);
+            dgvPhieu.Location = new Point(6, 85);
             dgvPhieu.MultiSelect = false;
             dgvPhieu.Name = "dgvPhieu";
             dgvPhieu.ReadOnly = true;
@@ -241,7 +230,7 @@
             dgvPhieu.RowHeadersWidth = 51;
             dgvPhieu.RowTemplate.Height = 29;
             dgvPhieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPhieu.Size = new Size(771, 321);
+            dgvPhieu.Size = new Size(514, 214);
             dgvPhieu.TabIndex = 3;
             dgvPhieu.SelectionChanged += dgvPhieu_SelectionChanged;
             // 
@@ -279,10 +268,9 @@
             // 
             // btnLoc
             // 
-            btnLoc.Location = new Point(578, 75);
-            btnLoc.Margin = new Padding(4);
+            btnLoc.Location = new Point(385, 50);
             btnLoc.Name = "btnLoc";
-            btnLoc.Size = new Size(141, 44);
+            btnLoc.Size = new Size(94, 29);
             btnLoc.TabIndex = 2;
             btnLoc.Text = "Lọc";
             btnLoc.UseVisualStyleBackColor = true;
@@ -291,20 +279,18 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(266, 42);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(177, 28);
             label7.Name = "label7";
-            label7.Size = new Size(87, 30);
+            label7.Size = new Size(62, 20);
             label7.TabIndex = 1;
             label7.Text = "Từ ngày";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(9, 42);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(6, 28);
             label6.Name = "label6";
-            label6.Size = new Size(105, 30);
+            label6.Size = new Size(75, 20);
             label6.TabIndex = 0;
             label6.Text = "Trạng thái";
             // 
@@ -312,10 +298,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 7F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(9, 46);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(6, 31);
             label5.Name = "label5";
-            label5.Size = new Size(361, 23);
+            label5.Size = new Size(248, 15);
             label5.TabIndex = 3;
             label5.Text = "Kiểm tra tồn kho tổng và tổng số lượng duyệt";
             // 
@@ -323,21 +308,19 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(4, 4);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(3, 3);
             label4.Name = "label4";
-            label4.Size = new Size(286, 38);
+            label4.Size = new Size(206, 28);
             label4.TabIndex = 2;
             label4.Text = "Duyệt Phiếu Xin Cấp";
             // 
             // UCDuyetPhieuXinCap
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelContent);
-            Margin = new Padding(4);
             Name = "UCDuyetPhieuXinCap";
-            Size = new Size(1860, 754);
+            Size = new Size(1240, 503);
             Load += UCDuyetPhieuXinCap_Load;
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
