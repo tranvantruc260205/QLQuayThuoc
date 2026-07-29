@@ -5,11 +5,13 @@ using QLQuayThuoc.Models;
 
 namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class AddUser : Form
+    public partial class Admin_AddUser : Form
     {
-        public AddUser()
+        public Admin_AddUser()
         {
             InitializeComponent();
+
+            AcceptButton = btnXacNhan;
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

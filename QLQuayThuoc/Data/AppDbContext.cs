@@ -5,8 +5,7 @@ namespace QLQuayThuoc.Data
 {
     public class AppDbContext : DbContext
     {
-        private const string ConnectionString =
-            "server=localhost;port=3306;database=QLQuayThuoc;user=root;password=Phantam12@1;";     //Tự thay mật khẩu mysql server vào
+        private const string ConnectionString = "";     //Tự thay mật khẩu mysql server vào
 
         public DbSet<User> Users { get; set; } = null!;
         public DbSet<BenhNhan> BenhNhans { get; set; } = null!;
@@ -22,6 +21,7 @@ namespace QLQuayThuoc.Data
         public DbSet<PhieuXinCapThuoc> PhieuXinCapThuocs { get; set; } = null!;
         public DbSet<ChiTietPhieuXinCap> ChiTietPhieuXinCaps { get; set; } = null!;
         public DbSet<ChiTietCapTheoLo> ChiTietCapTheoLos { get; set; } = null!;
+        public DbSet<CauHinhThanhToan> CauHinhThanhToans { get; set; } = null!;
 
         public AppDbContext()
         {
@@ -44,6 +44,8 @@ namespace QLQuayThuoc.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<CauHinhThanhToan>().ToTable("CauHinhThanhToan",table => table.ExcludeFromMigrations());
 
             // Đặt tên bảng ở dạng số ít
             modelBuilder.Entity<User>()

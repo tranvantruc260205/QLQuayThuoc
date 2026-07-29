@@ -1,16 +1,15 @@
-﻿using System.Drawing.Printing;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using QLQuayThuoc.Data;
-using QLQuayThuoc.Forms.Dialogs;
-using QLQuayThuoc.Models;
 using QLQuayThuoc.Utils;
+using System.Data;
+using QLQuayThuoc.Models;
+using System.Drawing.Printing;
 
-namespace QLQuayThuoc
+namespace QLQuayThuoc.Forms.Dialogs
 {
-    public partial class UCKeDonThuoc : UserControl
+    public partial class BacSi_XemChiTietDonThuoc : Form
     {
-        private BenhNhan? benhNhanDaChon;
-        private List<ChiTietDonThuoc> danhSachThuocTam = new();
+        private int maDonThuoc;
 
         private int maDonThuocCanIn;
         private DateTime ngayKeDonCanIn;
@@ -19,85 +18,192 @@ namespace QLQuayThuoc
         private string chanDoanCanIn = string.Empty;
         private string ghiChuDonCanIn = string.Empty;
 
-        private List<ChiTietDonThuoc> danhSachThuocCanIn = new();
+        private List<ChiTietDonThuoc> danhSachThuocCanIn =
+            new List<ChiTietDonThuoc>();
 
         private int viTriThuocDangIn;
-        public UCKeDonThuoc()
+        public BacSi_XemChiTietDonThuoc()
         {
             InitializeComponent();
 
+            StartPosition = FormStartPosition.CenterParent;
+
+            dgv.AutoGenerateColumns = false;
             dgv.AllowUserToAddRows = false;
             dgv.ReadOnly = true;
             dgv.MultiSelect = false;
 
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
-            txtChanDoan.MaxLength = 255;
-            txtGhiChu.MaxLength = 255;
         }
 
-        private void MoDialogThemSuaThuoc(
-    int? maThuocChonBanDau = null)
+        public BacSi_XemChiTietDonThuoc(int maDonThuoc) : this()
         {
-            using (BacSi_ThemSuaThuocDonThuoc dialog =
-                new BacSi_ThemSuaThuocDonThuoc(
-                    danhSachThuocTam,
-                    maThuocChonBanDau))
+            this.maDonThuoc = maDonThuoc;
+        }
+
+        private string HienThiTrangThai(
+    string trangThai)
+        {
+            switch (trangThai)
             {
-                if (dialog.ShowDialog() != DialogResult.OK)
-                {
-                    return;
-                }
+                case "CHO_XUAT_THUOC":
+                    return "Chờ xuất thuốc";
 
-                danhSachThuocTam =
-                    dialog.DanhSachThuocDaChon;
+                case "DA_XUAT_THUOC":
+                    return "Đã xuất thuốc";
 
-                HienThiDanhSachThuoc();
+                default:
+                    return trangThai;
             }
         }
 
-        private void HienThiDanhSachThuoc()
+        private void LoadChiTietDonThuoc()
         {
-            dgv.Rows.Clear();
-
-            foreach (ChiTietDonThuoc chiTiet
-                in danhSachThuocTam)
-            {
-                string tenThuoc =
-                    chiTiet.Thuoc.TenThuoc +
-                    " - " +
-                    chiTiet.Thuoc.HamLuong +
-                    " (" +
-                    chiTiet.Thuoc.DonViTinh +
-                    ")";
-
-                int dong = dgv.Rows.Add(
-                    tenThuoc,
-                    chiTiet.SoLuong,
-                    chiTiet.LieuDung,
-                    chiTiet.TanSuat,
-                    chiTiet.SoNgayDung,
-                    chiTiet.GhiChu ?? "");
-
-                dgv.Rows[dong].Tag =
-                    chiTiet.MaThuoc;
-            }
-
-            dgv.ClearSelection();
-        }
-
-        private bool KiemTraDuLieuTruocKhiLuu()
-        {
-            if (benhNhanDaChon == null)
+            if (UserSession.UserId <= 0)
             {
                 MessageBox.Show(
-                    "Vui lòng chọn bệnh nhân!",
+                    "Không xác định được bác sĩ đang đăng nhập!",
                     "Thông báo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                return false;
+                Close();
+                return;
             }
+
+            try
+            {
+                using (AppDbContext db = new AppDbContext())
+                {
+                    // Lấy thông tin đơn và bệnh nhân
+                    var donThuoc = db.DonThuocs
+                        .AsNoTracking()
+                        .Where(x =>
+                            x.MaDonThuoc == maDonThuoc &&
+                            x.BacSiId == UserSession.UserId)
+                        .Select(x => new
+                        {
+                            x.MaDonThuoc,
+                            x.NgayKeDon,
+                            x.ChanDoan,
+                            x.TrangThai,
+                            x.GhiChu,
+
+                            MaBenhNhan =
+                                x.BenhNhan.MaBN,
+
+                            HoTenBenhNhan =
+                                x.BenhNhan.HoTen,
+
+                            x.BenhNhan.NgaySinh,
+                            x.BenhNhan.GioiTinh,
+                            x.BenhNhan.DiaChi
+                        })
+                        .FirstOrDefault();
+
+                    if (donThuoc == null)
+                    {
+                        MessageBox.Show(
+                            "Không tìm thấy đơn thuốc hoặc đơn này không thuộc bác sĩ đang đăng nhập!",
+                            "Thông báo",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        DialogResult = DialogResult.Cancel;
+                        Close();
+                        return;
+                    }
+
+                    // Hiển thị thông tin đơn thuốc
+                    lblMaDonThuoc.Text =
+                        donThuoc.MaDonThuoc.ToString();
+
+                    lblNgayKe.Text =
+                        donThuoc.NgayKeDon.ToString(
+                            "dd/MM/yyyy HH:mm");
+
+                    lblChanDoan.Text =
+                        donThuoc.ChanDoan;
+
+                    lblTrangThai.Text = HienThiTrangThai(donThuoc.TrangThai);
+
+                    lblGhiChu.Text =
+                        string.IsNullOrWhiteSpace(
+                            donThuoc.GhiChu)
+                            ? "Không có"
+                            : donThuoc.GhiChu;
+
+                    // Hiển thị thông tin bệnh nhân
+                    lblMaBN.Text =
+                        donThuoc.MaBenhNhan.ToString();
+
+                    lblHoTenBN.Text =
+                        donThuoc.HoTenBenhNhan;
+
+                    lblNgaySinh.Text =
+                        donThuoc.NgaySinh.ToString(
+                            "dd/MM/yyyy");
+
+                    lblGioiTinh.Text =
+                        donThuoc.GioiTinh
+                            ? "Nam"
+                            : "Nữ";
+
+                    lblDiaChi.Text =
+                        donThuoc.DiaChi;
+
+                    // Lấy danh sách thuốc trong đơn
+                    var danhSachThuoc =
+                        db.ChiTietDonThuocs
+                            .AsNoTracking()
+                            .Where(x =>
+                                x.MaDonThuoc == maDonThuoc)
+                            .OrderBy(x => x.MaThuoc)
+                            .Select(x => new
+                            {
+                                x.MaThuoc,
+                                TenThuoc =
+                                    x.Thuoc.TenThuoc,
+                                x.SoLuong,
+                                x.LieuDung,
+                                x.TanSuat,
+                                x.SoNgayDung,
+                                x.GhiChu
+                            })
+                            .ToList();
+
+                    dgv.Rows.Clear();
+
+                    foreach (var thuoc in danhSachThuoc)
+                    {
+                        dgv.Rows.Add(
+                            thuoc.MaThuoc,
+                            thuoc.TenThuoc,
+                            thuoc.SoLuong,
+                            thuoc.LieuDung,
+                            thuoc.TanSuat,
+                            thuoc.SoNgayDung,
+                            thuoc.GhiChu ?? "");
+                    }
+
+                    dgv.ClearSelection();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Không thể tải chi tiết đơn thuốc!\n" +
+                    ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private bool TaiDuLieuInLai()
+        {
+            benhNhanCanIn = null;
+            danhSachThuocCanIn.Clear();
 
             if (UserSession.UserId <= 0)
             {
@@ -110,156 +216,68 @@ namespace QLQuayThuoc
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtChanDoan.Text))
+            using (AppDbContext db = new AppDbContext())
             {
-                MessageBox.Show(
-                    "Vui lòng nhập chẩn đoán!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                DonThuoc? donThuoc = db.DonThuocs
+                    .AsNoTracking()
+                    .Include(x => x.BenhNhan)
+                    .Include(x => x.BacSi)
+                    .Include(x => x.ChiTietDonThuocs)
+                        .ThenInclude(x => x.Thuoc)
+                    .FirstOrDefault(x =>
+                        x.MaDonThuoc == maDonThuoc &&
+                        x.BacSiId == UserSession.UserId);
 
-                txtChanDoan.Focus();
-                return false;
-            }
-
-            if (txtChanDoan.Text.Trim().Length > 255)
-            {
-                MessageBox.Show(
-                    "Chẩn đoán không được vượt quá 255 ký tự!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtChanDoan.Focus();
-                return false;
-            }
-
-            if (txtGhiChu.Text.Trim().Length > 255)
-            {
-                MessageBox.Show(
-                    "Ghi chú không được vượt quá 255 ký tự!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtGhiChu.Focus();
-                return false;
-            }
-
-            if (danhSachThuocTam.Count == 0)
-            {
-                MessageBox.Show(
-                    "Đơn thuốc phải có ít nhất một thuốc!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            bool coChiTietKhongHopLe =
-                danhSachThuocTam.Any(x =>
-                    x.MaThuoc <= 0 ||
-                    x.SoLuong <= 0 ||
-                    x.SoNgayDung <= 0 ||
-                    string.IsNullOrWhiteSpace(x.LieuDung) ||
-                    string.IsNullOrWhiteSpace(x.TanSuat));
-
-            if (coChiTietKhongHopLe)
-            {
-                MessageBox.Show(
-                    "Danh sách thuốc có thông tin chưa hợp lệ. " +
-                    "Vui lòng kiểm tra lại!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return false;
-            }
-
-            return true;
-        }
-
-        private void ChuanBiDuLieuIn(DonThuoc donThuoc)
-        {
-            maDonThuocCanIn =
-                donThuoc.MaDonThuoc;
-
-            ngayKeDonCanIn =
-                donThuoc.NgayKeDon;
-
-            tenBacSiCanIn =
-                UserSession.FullName;
-
-            benhNhanCanIn =
-                benhNhanDaChon;
-
-            chanDoanCanIn =
-                donThuoc.ChanDoan;
-
-            ghiChuDonCanIn =
-                donThuoc.GhiChu ?? "";
-
-            // Sao chép danh sách để bản in không bị ảnh hưởng
-            // khi làm mới form.
-            danhSachThuocCanIn =
-                danhSachThuocTam
-                    .Select(x => new ChiTietDonThuoc
-                    {
-                        MaThuoc = x.MaThuoc,
-                        SoLuong = x.SoLuong,
-                        LieuDung = x.LieuDung,
-                        TanSuat = x.TanSuat,
-                        SoNgayDung = x.SoNgayDung,
-                        GhiChu = x.GhiChu,
-                        Thuoc = x.Thuoc
-                    })
-                    .ToList();
-        }
-
-        private void MoXemTruocDonThuoc()
-        {
-            using (PrintDocument taiLieuIn =
-                new PrintDocument())
-            {
-                taiLieuIn.DocumentName =
-                    "DonThuoc_" + maDonThuocCanIn;
-
-                taiLieuIn.DefaultPageSettings.PaperSize =
-                    new PaperSize("A4", 827, 1169);
-
-                taiLieuIn.DefaultPageSettings.Margins =
-                    new Margins(45, 45, 45, 45);
-
-                taiLieuIn.BeginPrint += (sender, e) =>
+                if (donThuoc == null)
                 {
-                    viTriThuocDangIn = 0;
-                };
+                    MessageBox.Show(
+                        "Không tìm thấy đơn thuốc hoặc đơn này " +
+                        "không thuộc bác sĩ đang đăng nhập!",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
 
-                taiLieuIn.PrintPage +=
-                    TaiLieuIn_PrintPage;
-
-                using (PrintPreviewDialog xemTruoc =
-                    new PrintPreviewDialog())
-                {
-                    xemTruoc.Document = taiLieuIn;
-
-                    xemTruoc.WindowState =
-                        FormWindowState.Maximized;
-
-                    xemTruoc.UseAntiAlias = true;
-
-                    Form? formCha = FindForm();
-
-                    if (formCha != null)
-                    {
-                        xemTruoc.ShowDialog(formCha);
-                    }
-                    else
-                    {
-                        xemTruoc.ShowDialog();
-                    }
+                    return false;
                 }
+
+                List<ChiTietDonThuoc> danhSachThuoc =
+                    donThuoc.ChiTietDonThuocs
+                        .OrderBy(x => x.MaThuoc)
+                        .ToList();
+
+                if (danhSachThuoc.Count == 0)
+                {
+                    MessageBox.Show(
+                        "Đơn thuốc không có thuốc để in!",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+
+                    return false;
+                }
+
+                maDonThuocCanIn =
+                    donThuoc.MaDonThuoc;
+
+                ngayKeDonCanIn =
+                    donThuoc.NgayKeDon;
+
+                tenBacSiCanIn =
+                    donThuoc.BacSi.FullName;
+
+                benhNhanCanIn =
+                    donThuoc.BenhNhan;
+
+                chanDoanCanIn =
+                    donThuoc.ChanDoan;
+
+                ghiChuDonCanIn =
+                    donThuoc.GhiChu ?? "";
+
+                danhSachThuocCanIn =
+                    danhSachThuoc;
+
+                return true;
             }
         }
 
@@ -571,6 +589,41 @@ namespace QLQuayThuoc
             e.HasMorePages = false;
         }
 
+        private void MoXemTruocDonThuoc()
+        {
+            using (PrintDocument taiLieuIn =
+                new PrintDocument())
+            {
+                taiLieuIn.DocumentName =
+                    "DonThuoc_" + maDonThuocCanIn;
+
+                taiLieuIn.DefaultPageSettings.PaperSize =
+                    new PaperSize("A4", 827, 1169);
+
+                taiLieuIn.DefaultPageSettings.Margins =
+                    new Margins(45, 45, 45, 45);
+
+                taiLieuIn.BeginPrint += (sender, e) =>
+                {
+                    viTriThuocDangIn = 0;
+                };
+
+                taiLieuIn.PrintPage +=
+                    TaiLieuIn_PrintPage;
+
+                using (PrintPreviewDialog xemTruoc =
+                    new PrintPreviewDialog())
+                {
+                    xemTruoc.Document = taiLieuIn;
+                    xemTruoc.WindowState =
+                        FormWindowState.Maximized;
+                    xemTruoc.UseAntiAlias = true;
+
+                    xemTruoc.ShowDialog(this);
+                }
+            }
+        }
+
         private float VeHaiCot(
     Graphics g,
     Font font,
@@ -747,234 +800,41 @@ namespace QLQuayThuoc
             }
         }
 
-        private void LamMoiFormKeDon()
+        private void XemChiTietDonThuoc_Load(object sender, EventArgs e)
         {
-            benhNhanDaChon = null;
-            danhSachThuocTam.Clear();
-
-            lblMaBN.Text = "";
-            lblHoTen.Text = "";
-            lblNgaySinh.Text = "";
-            lblGioiTinh.Text = "";
-            lblBHYT.Text = "";
-
-            txtChanDoan.Clear();
-            txtGhiChu.Clear();
-
-            dgv.Rows.Clear();
-
-            benhNhanCanIn = null;
-            danhSachThuocCanIn.Clear();
-
-            txtChanDoan.Focus();
+            LoadChiTietDonThuoc();
         }
 
-        private void btnChonBN_Click(object sender, EventArgs e)
+        private void btnDong_Click(object sender, EventArgs e)
         {
-            using (BacSi_ChonBenhNhan dialog =
-                new BacSi_ChonBenhNhan())
-            {
-                if (dialog.ShowDialog() !=
-                        DialogResult.OK ||
-                    dialog.BenhNhanDuocChon == null)
-                {
-                    return;
-                }
-
-                benhNhanDaChon =
-                    dialog.BenhNhanDuocChon;
-
-                lblMaBN.Text =
-                    benhNhanDaChon.MaBN.ToString();
-
-                lblHoTen.Text =
-                    benhNhanDaChon.HoTen;
-
-                lblNgaySinh.Text =
-                    benhNhanDaChon.NgaySinh.ToString(
-                        "dd/MM/yyyy");
-
-                lblGioiTinh.Text =
-                    benhNhanDaChon.GioiTinh
-                        ? "Nam"
-                        : "Nữ";
-
-                lblBHYT.Text =
-                    string.IsNullOrWhiteSpace(
-                        benhNhanDaChon.MaBHYT)
-                        ? "Không có"
-                        : benhNhanDaChon.MaBHYT;
-            }
+            Close();
         }
 
-        private void btnThemThuoc_Click(object sender, EventArgs e)
+        private void btnInLaiDon_Click(object sender, EventArgs e)
         {
-            MoDialogThemSuaThuoc();
-        }
-
-        private void btnSuaDong_Click(object sender, EventArgs e)
-        {
-            if (dgv.CurrentRow == null || dgv.CurrentRow.Tag is not int maThuoc)
-            {
-                MessageBox.Show(
-                    "Vui lòng chọn thuốc cần sửa!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            MoDialogThemSuaThuoc(maThuoc);
-        }
-
-        private void btnXoaDong_Click(object sender, EventArgs e)
-        {
-            if (dgv.CurrentRow == null || dgv.CurrentRow.Tag is not int maThuoc)
-            {
-                MessageBox.Show(
-                    "Vui lòng chọn thuốc cần xóa!",
-                    "Thông báo",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                return;
-            }
-
-            ChiTietDonThuoc? chiTiet =
-                danhSachThuocTam.FirstOrDefault(x =>
-                    x.MaThuoc == maThuoc);
-
-            if (chiTiet == null)
-            {
-                return;
-            }
-
-            DialogResult ketQua = MessageBox.Show(
-                "Bạn có chắc muốn xóa thuốc \"" +
-                chiTiet.Thuoc.TenThuoc +
-                "\" khỏi đơn?",
-                "Xác nhận",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (ketQua != DialogResult.Yes)
-            {
-                return;
-            }
-
-            danhSachThuocTam.Remove(chiTiet);
-            HienThiDanhSachThuoc();
-        }
-
-        private void btnLuuVaIn_Click(object sender, EventArgs e)
-        {
-            if (!KiemTraDuLieuTruocKhiLuu())
-            {
-                return;
-            }
-
-            btnLuuVaIn.Enabled = false;
+            btnInLaiDon.Enabled = false;
 
             try
             {
-                DonThuoc? donThuocDaLuu = null;
-
-                // Chỉ lấy một lần để database và bản in
-                // có cùng thời gian kê đơn.
-                DateTime ngayKeDon = DateTime.Now;
-
-                try
+                if (!TaiDuLieuInLai())
                 {
-                    using (AppDbContext db = new AppDbContext())
-                    using (var giaoDich =
-                        db.Database.BeginTransaction())
-                    {
-                        DonThuoc donThuoc = new DonThuoc
-                        {
-                            MaBN = benhNhanDaChon!.MaBN,
-                            BacSiId = UserSession.UserId,
-                            NgayKeDon = ngayKeDon,
-
-                            ChanDoan =
-                                txtChanDoan.Text.Trim(),
-
-                            TrangThai = "CHO_XUAT_THUOC",
-
-                            GhiChu =
-                                string.IsNullOrWhiteSpace(
-                                    txtGhiChu.Text)
-                                    ? null
-                                    : txtGhiChu.Text.Trim()
-                        };
-
-                        foreach (ChiTietDonThuoc chiTiet
-                            in danhSachThuocTam)
-                        {
-                            donThuoc.ChiTietDonThuocs.Add(
-                                new ChiTietDonThuoc
-                                {
-                                    MaThuoc = chiTiet.MaThuoc,
-                                    SoLuong = chiTiet.SoLuong,
-                                    LieuDung = chiTiet.LieuDung,
-                                    TanSuat = chiTiet.TanSuat,
-                                    SoNgayDung =
-                                        chiTiet.SoNgayDung,
-                                    GhiChu = chiTiet.GhiChu
-                                });
-                        }
-
-                        db.DonThuocs.Add(donThuoc);
-                        db.SaveChanges();
-
-                        giaoDich.Commit();
-
-                        donThuocDaLuu = donThuoc;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Không thể lưu đơn thuốc!\n" +
-                        ex.Message,
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-
                     return;
                 }
 
-                ChuanBiDuLieuIn(donThuocDaLuu);
-
-                try
-                {
-                    MoXemTruocDonThuoc();
-
-                    MessageBox.Show(
-                        "Đã lưu đơn thuốc thành công!\n" +
-                        "Mã đơn thuốc: " +
-                        donThuocDaLuu.MaDonThuoc,
-                        "Thành công",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Đơn thuốc đã được lưu với mã " +
-                        donThuocDaLuu.MaDonThuoc +
-                        ", nhưng không thể mở bản xem trước!\n" +
-                        ex.Message,
-                        "Cảnh báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                }
-
-                LamMoiFormKeDon();
+                MoXemTruocDonThuoc();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Không thể mở bản xem trước đơn thuốc!\n" +
+                    ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             finally
             {
-                btnLuuVaIn.Enabled = true;
+                btnInLaiDon.Enabled = true;
             }
         }
     }

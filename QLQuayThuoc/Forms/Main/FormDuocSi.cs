@@ -1,13 +1,9 @@
-﻿using QLQuayThuoc.UserControls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Microsoft.EntityFrameworkCore;
+using QLQuayThuoc.Data;
+using QLQuayThuoc.UserControls;
+using QLQuayThuoc.UserControls.UCDuocSi;
+using QLQuayThuoc.Utils;
+
 
 namespace QLQuayThuoc
 {
@@ -16,7 +12,10 @@ namespace QLQuayThuoc
         public FormDuocSi()
         {
             InitializeComponent();
+
+            lblDuocSi.Text = UserSession.UserId + " | " + UserSession.FullName + " | Dược sĩ";
         }
+        
 
         private void OpenUserControl(UserControl userControl)
         {
@@ -42,6 +41,33 @@ namespace QLQuayThuoc
         private void button1_Click(object sender, EventArgs e)
         {
             OpenUserControl(new UCTiepNhanDon());
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult ketQua =
+                MessageBox.Show(
+                    "Bạn có chắc muốn đăng xuất không?",
+                    "Xác nhận đăng xuất",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+            if (ketQua != DialogResult.Yes)
+            {
+                return;
+            }
+            UserSession.Clear();
+            this.Close();
+        }
+
+        private void FormDuocSi_Load(object sender, EventArgs e)
+        {
+            OpenUserControl(new UCTiepNhanDon());
+        }
+
+        private void btnLichSu_Click(object sender, EventArgs e)
+        {
+            OpenUserControl(new UCLichSuXuatThuoc());
         }
     }
 }
