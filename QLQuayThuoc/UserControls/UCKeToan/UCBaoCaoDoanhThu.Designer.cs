@@ -175,6 +175,7 @@
             // lblTongSoHoaDon
             // 
             lblTongSoHoaDon.AutoSize = true;
+            lblTongSoHoaDon.ForeColor = Color.Red;
             lblTongSoHoaDon.Location = new Point(80, 57);
             lblTongSoHoaDon.Name = "lblTongSoHoaDon";
             lblTongSoHoaDon.Size = new Size(50, 20);
@@ -204,6 +205,7 @@
             // lblTongTienThuoc
             // 
             lblTongTienThuoc.AutoSize = true;
+            lblTongTienThuoc.ForeColor = Color.Red;
             lblTongTienThuoc.Location = new Point(42, 57);
             lblTongTienThuoc.Name = "lblTongTienThuoc";
             lblTongTienThuoc.Size = new Size(50, 20);
@@ -233,6 +235,7 @@
             // lblTongBHYT
             // 
             lblTongBHYT.AutoSize = true;
+            lblTongBHYT.ForeColor = Color.Red;
             lblTongBHYT.Location = new Point(47, 57);
             lblTongBHYT.Name = "lblTongBHYT";
             lblTongBHYT.Size = new Size(50, 20);
@@ -262,6 +265,7 @@
             // lblTongBenhNhanTra
             // 
             lblTongBenhNhanTra.AutoSize = true;
+            lblTongBenhNhanTra.ForeColor = Color.Red;
             lblTongBenhNhanTra.Location = new Point(54, 57);
             lblTongBenhNhanTra.Name = "lblTongBenhNhanTra";
             lblTongBenhNhanTra.Size = new Size(58, 20);

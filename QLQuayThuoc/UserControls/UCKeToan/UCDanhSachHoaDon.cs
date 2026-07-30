@@ -145,8 +145,6 @@ namespace QLQuayThuoc.UserControls.UCKeToan
 
             btnLoc.Click += btnLoc_Click;
             btnLamMoi.Click += btnLamMoi_Click;
-            btnXemChiTiet.Click += btnXemChiTiet_Click;
-            btnInHoaDon.Click += btnInHoaDon_Click;
 
             txtTimKiem.KeyDown += txtTimKiem_KeyDown;
 
@@ -421,6 +419,9 @@ namespace QLQuayThuoc.UserControls.UCKeToan
 
             noiDung.AppendLine(
                 $"Bệnh nhân trả: {hoaDon.BenhNhanTra:N0} VNĐ");
+
+            noiDung.AppendLine(
+                $"Mã giao dịch: {hoaDon.MaGiaoDich:N0} ");
 
             MessageBox.Show(
                 noiDung.ToString(),
