@@ -37,13 +37,6 @@
             label14 = new Label();
             label13 = new Label();
             dgv = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
             label4 = new Label();
             panel9 = new Panel();
             lblPhieuChoDuyet = new Label();
@@ -54,6 +47,13 @@
             panel7 = new Panel();
             lblThuocSapHet = new Label();
             label6 = new Label();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            Column4 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv).BeginInit();
             panel9.SuspendLayout();
             panel8.SuspendLayout();
@@ -156,55 +156,6 @@
             dgv.RowTemplate.Height = 37;
             dgv.Size = new Size(925, 294);
             dgv.TabIndex = 36;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Mã thuốc";
-            Column1.MinimumWidth = 9;
-            Column1.Name = "Column1";
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Tên thuốc";
-            Column2.MinimumWidth = 9;
-            Column2.Name = "Column2";
-            Column2.Width = 300;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Số lô";
-            Column3.MinimumWidth = 9;
-            Column3.Name = "Column3";
-            Column3.Width = 200;
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Ngày hết hạn";
-            Column4.MinimumWidth = 9;
-            Column4.Name = "Column4";
-            Column4.Width = 250;
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Tồn quầy";
-            Column5.MinimumWidth = 9;
-            Column5.Name = "Column5";
-            Column5.Width = 130;
-            // 
-            // Column6
-            // 
-            Column6.HeaderText = "Đơn vị";
-            Column6.MinimumWidth = 9;
-            Column6.Name = "Column6";
-            Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            Column7.HeaderText = "Trạng thái ";
-            Column7.MinimumWidth = 9;
-            Column7.Name = "Column7";
-            Column7.Width = 205;
             // 
             // label4
             // 
@@ -316,6 +267,55 @@
             label6.TabIndex = 0;
             label6.Text = "Thuốc sắp hết ";
             // 
+            // Column1
+            // 
+            Column1.HeaderText = "Mã thuốc";
+            Column1.MinimumWidth = 9;
+            Column1.Name = "Column1";
+            Column1.Width = 120;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Tên thuốc";
+            Column2.MinimumWidth = 9;
+            Column2.Name = "Column2";
+            Column2.Width = 300;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Số lô";
+            Column3.MinimumWidth = 9;
+            Column3.Name = "Column3";
+            Column3.Width = 150;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Ngày hết hạn";
+            Column4.MinimumWidth = 9;
+            Column4.Name = "Column4";
+            Column4.Width = 250;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Tồn quầy";
+            Column5.MinimumWidth = 9;
+            Column5.Name = "Column5";
+            Column5.Width = 130;
+            // 
+            // Column6
+            // 
+            Column6.HeaderText = "Đơn vị";
+            Column6.MinimumWidth = 9;
+            Column6.Name = "Column6";
+            Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            Column7.HeaderText = "Trạng thái ";
+            Column7.MinimumWidth = 9;
+            Column7.Name = "Column7";
+            Column7.Width = 285;
+            // 
             // UCTonKhoQuay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -359,13 +359,6 @@
         private Label label13;
         private DataGridView dgv;
         private Label label4;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column7;
         private Panel panel9;
         private Label lblPhieuChoDuyet;
         private Label label8;
@@ -375,5 +368,12 @@
         private Panel panel7;
         private Label lblThuocSapHet;
         private Label label6;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column7;
     }
 }
