@@ -147,7 +147,6 @@ namespace QLQuayThuoc.UserControls.UCKeToan
             Load += UCBaoCaoDoanhThu_Load;
 
             btnThongKe.Click += btnThongKe_Click;
-            btnXuatExcel.Click += btnXuatExcel_Click;
             btnXemHoaDon.Click += btnXemHoaDon_Click;
 
             dgvBaoCao.CellDoubleClick +=
