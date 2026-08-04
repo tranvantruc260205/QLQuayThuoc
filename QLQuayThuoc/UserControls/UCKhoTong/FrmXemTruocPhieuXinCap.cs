@@ -177,7 +177,7 @@ namespace QLQuayThuoc.UserControls.UCKhoTong
             int rongTrang = e.MarginBounds.Width;
             int dayTrang = e.MarginBounds.Bottom;
 
-            g.DrawString("NHÀ THUỐC ABC", fontDam, Brushes.Black, x, y);
+            g.DrawString("NHÀ THUỐC PGT", fontDam, Brushes.Black, x, y);
             y += 30;
             g.DrawString(
                 "PHIẾU XIN CẤP THUỐC",
