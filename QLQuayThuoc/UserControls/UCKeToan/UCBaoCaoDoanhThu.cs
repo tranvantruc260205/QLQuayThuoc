@@ -147,9 +147,7 @@ namespace QLQuayThuoc.UserControls.UCKeToan
             Load += UCBaoCaoDoanhThu_Load;
 
             btnThongKe.Click += btnThongKe_Click;
-            btnXuatExcel.Click += btnXuatExcel_Click;
             btnXemHoaDon.Click += btnXemHoaDon_Click;
-            btnInBaoCao.Click += btnInBaoCao_Click;
 
             dgvBaoCao.CellDoubleClick +=
                 dgvBaoCao_CellDoubleClick;
@@ -585,34 +583,23 @@ namespace QLQuayThuoc.UserControls.UCKeToan
                         saveFileDialog.FileName,
                         false,
                         new UTF8Encoding(true));
+                string separator = CultureInfo.CurrentCulture.TextInfo.ListSeparator;
 
-                writer.WriteLine(
-                    "Thời gian;" +
-                    "Số lượng hóa đơn;" +
-                    "Tiền thuốc;" +
-                    "BHYT chi trả;" +
-                    "Bệnh nhân trả");
+                writer.WriteLine(string.Join(separator,
+                         "Thời gian",
+                         "Số lượng hóa đơn",
+                         "Tiền thuốc",
+                         "BHYT chi trả",
+                         "Bệnh nhân trả"));
 
-                foreach (
-                    BaoCaoDoanhThuViewModel item
-                    in danhSachBaoCao)
+                foreach (var item in danhSachBaoCao)
                 {
-                    writer.WriteLine(
-                        Csv(item.ThoiGian) + ";" +
-
-                        item.SoLuongHoaDon + ";" +
-
-                        item.TienThuoc.ToString(
-                            "0.##",
-                            CultureInfo.InvariantCulture) + ";" +
-
-                        item.BHYTChiTra.ToString(
-                            "0.##",
-                            CultureInfo.InvariantCulture) + ";" +
-
-                        item.BenhNhanTra.ToString(
-                            "0.##",
-                            CultureInfo.InvariantCulture));
+                   writer.WriteLine(string.Join(separator,
+                        Csv(item.ThoiGian),
+                        item.SoLuongHoaDon,
+                        item.TienThuoc.ToString(CultureInfo.InvariantCulture),
+                        item.BHYTChiTra.ToString(CultureInfo.InvariantCulture),
+                        item.BenhNhanTra.ToString(CultureInfo.InvariantCulture)));
                 }
 
                 MessageBox.Show(

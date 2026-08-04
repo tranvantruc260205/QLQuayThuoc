@@ -39,16 +39,16 @@ namespace QLQuayThuoc
             dgv.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dgv.AutoSizeColumnsMode =
-                DataGridViewAutoSizeColumnsMode.Fill;
+            //dgv.AutoSizeColumnsMode =
+            //    DataGridViewAutoSizeColumnsMode.Fill;
 
-            Column1.FillWeight = 12;
-            Column2.FillWeight = 24;
-            Column3.FillWeight = 16;
-            Column4.FillWeight = 18;
-            Column5.FillWeight = 10;
-            Column6.FillWeight = 12;
-            Column7.FillWeight = 22;
+            //Column1.FillWeight = 12;
+            //Column2.FillWeight = 24;
+            //Column3.FillWeight = 16;
+            //Column4.FillWeight = 18;
+            //Column5.FillWeight = 10;
+            //Column6.FillWeight = 12;
+            //Column7.FillWeight = 22;
 
             // Bộ lọc hạn dùng
             cbHanDung.DropDownStyle =
@@ -336,7 +336,7 @@ namespace QLQuayThuoc
                 ngaySauMocCanhBao)
             {
                 return sapHet
-                    ? "Sắp hết - Sắp hết hạn"
+                    ? "Sắp hết - Sắp hết hạn - " + (ngayHetHan - homNay).Days + " ngày"
                     : "Sắp hết hạn";
             }
 
